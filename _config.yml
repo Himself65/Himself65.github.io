@@ -112,5 +112,9 @@ friends: [
     {
         title: "妮妙的Pixiv",
         href: "https://www.pixiv.net/member_illust.php?id=11619949"
+    },
+    {
+        titile: "DimensionTripper's blog",
+        href: "https://dimensiontripper.github.io/"
     }
 ]
