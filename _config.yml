@@ -115,10 +115,10 @@ friends: [
     },
     {
         title: "DimensionTripper's blog",
-        herf: "https://dimensiontripper.github.io/"
+        href: "https://dimensiontripper.github.io/"
     },
     {
         title: "yizr_cnyali's blog",
-        herf: "http://yizr-cnyali.ac.cn/"
+        href: "http://yizr-cnyali.ac.cn/"
     }
 ]
