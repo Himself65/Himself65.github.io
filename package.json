@@ -17,7 +17,7 @@
     "dateformat": "^3.0.3",
     "lodash": "^4.17.11",
     "markdown-palettes": "^0.4.8-alpha",
-    "marked": "^0.5.2",
+    "marked": "^0.6.1",
     "material-design-icons-iconfont": "^4.0.3",
     "register-service-worker": "^1.5.2",
     "sweetalert2": "^8.0.1",
