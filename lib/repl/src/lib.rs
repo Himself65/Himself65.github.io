@@ -1,18 +1,44 @@
 extern crate wasm_bindgen;
 
 use wasm_bindgen::prelude::*;
+use std::vec::Vec;
+
+#[wasm_bindgen]
+struct ReplInstance {
+    programs: Vec<JsValue>
+}
+
+#[wasm_bindgen]
+impl ReplInstance {
+    pub fn register(&self, program: JsValue) -> JsValue {
+        if !program.is_function() {
+            JsValue::from_bool(false)
+        } else {
+            JsValue::from_bool(true)
+        }
+    }
+}
 
 #[wasm_bindgen]
 pub fn repl(line: &str) -> String {
-    return format!("");
+    let v: Vec<&str> = line.split(' ').collect();
+    return format!("{}", v[0]);
 }
 
 #[cfg(test)]
 mod tests {
-    use crate::repl;
+    use crate::*;
 
     #[test]
     fn repl_base() {
         assert_eq!(repl(""), "");
+        assert_eq!(repl("foo"), "foo");
+        assert_eq!(repl("foo goo"), "foo");
+    }
+
+    #[test]
+    fn repl_instance_base() {
+        let instance = ReplInstance { programs: vec![] };
+        assert_eq!(instance.register(JsValue::NULL), JsValue::FALSE);
     }
 }

@@ -9,9 +9,11 @@ license = "MIT"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [lib]
 crate-type = ["cdylib"]
+test = false
 
 [dependencies]
 wasm-bindgen="0.2.60"
+js-sys="0.3.37"
 
 [dev-dependencies]
 wasm-bindgen-test="0.3.10"
