@@ -1,0 +1,23 @@
+{
+  "name": "repl",
+  "version": "1.0.0",
+  "main": "pkg/repl.js",
+  "scripts": {
+    "pretest": "wasm-pack build --target nodejs",
+    "test": "jest",
+    "build": "wasm-pack build --target web"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
+    "@types/jest": "^25.2.1",
+    "@types/node": "^13.11.1",
+    "babel-jest": "^25.3.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "jest": "^25.3.0"
+  }
+}
