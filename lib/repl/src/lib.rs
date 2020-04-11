@@ -35,10 +35,4 @@ mod tests {
         assert_eq!(repl("foo"), "foo");
         assert_eq!(repl("foo goo"), "foo");
     }
-
-    #[test]
-    fn repl_instance_base() {
-        let instance = ReplInstance { programs: vec![] };
-        assert_eq!(instance.register(JsValue::NULL), JsValue::FALSE);
-    }
 }
