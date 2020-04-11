@@ -9,8 +9,10 @@ pub fn repl(line: &str) -> String {
 
 #[cfg(test)]
 mod tests {
+    use crate::repl;
+
     #[test]
     fn repl_base() {
-
+        assert_eq!(repl(""), "");
     }
 }
