@@ -4,7 +4,7 @@ use wasm_bindgen::prelude::*;
 use std::vec::Vec;
 
 #[wasm_bindgen]
-struct ReplInstance {
+pub struct ReplInstance {
     programs: Vec<JsValue>
 }
 
@@ -23,16 +23,4 @@ impl ReplInstance {
 pub fn repl(line: &str) -> String {
     let v: Vec<&str> = line.split(' ').collect();
     return format!("{}", v[0]);
-}
-
-#[cfg(test)]
-mod tests {
-    use crate::*;
-
-    #[test]
-    fn repl_base() {
-        assert_eq!(repl(""), "");
-        assert_eq!(repl("foo"), "foo");
-        assert_eq!(repl("foo goo"), "foo");
-    }
 }
