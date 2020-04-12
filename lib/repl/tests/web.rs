@@ -1,6 +1,7 @@
 extern crate repl;
 
 use wasm_bindgen_test::*;
+use repl::repl;
 
 wasm_bindgen_test_configure!(run_in_browser);
 
