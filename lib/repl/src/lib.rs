@@ -2,20 +2,21 @@ extern crate wasm_bindgen;
 
 use wasm_bindgen::prelude::*;
 use std::vec::Vec;
+use js_sys::*;
+
+struct ReplInstance {}
 
 #[wasm_bindgen]
-pub struct ReplInstance {
-    programs: Vec<JsValue>
-}
-
-#[wasm_bindgen]
-impl ReplInstance {
-    pub fn register(&self, program: JsValue) -> JsValue {
-        if !program.is_function() {
-            JsValue::from_bool(false)
-        } else {
-            JsValue::from_bool(true)
+pub fn register(&mut repl_instance: ReplInstance, program: Function) -> Boolean {
+    if !program.is_function() {
+        false.into()
+    } else {
+        // fixme
+        match program.apply(&repl_instance.context, &Array::from(&JsValue::UNDEFINED)) {
+            Ok(obj) => repl_instance.programs.push(obj.into()),
+            Err(error) => {}
         }
+        true.into()
     }
 }
 
