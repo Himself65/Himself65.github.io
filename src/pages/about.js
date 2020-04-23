@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import Disqus from 'disqus-react'
 import Divider from '@material-ui/core/Divider'
 import { makeStyles, useTheme } from '@material-ui/core/styles'
+import { Tooltip, Typography } from '@material-ui/core'
 import Image from 'gatsby-image'
 
 import Layout from '../components/layout'
@@ -11,11 +12,18 @@ import SEO from '../components/seo'
 import Bio from '../components/bio'
 
 import '../style/friend.css'
-import { Typography } from '@material-ui/core'
 
 const useStyles = makeStyles({
   friends: {
-    margin: '1rem 0 0 0'
+    display: 'flex',
+    marginTop: '1rem',
+    flexDirection: 'row'
+  },
+  friend: {
+    margin: '0 0.5rem',
+    '&:first-child': {
+      marginLeft: '0'
+    }
   },
   divider: {
     marginBottom: '1rem'
@@ -63,31 +71,35 @@ const FriendPage = (props) => {
           const image = avatars.find(
             v => new RegExp(friend.image).test(v.relativePath))
           return (
-            <li
-              key={friend.name}
-              className='friend-card'
-              onClick={() => window.open(friend.url)}
-            >
-              <Image
-                alt={props.alt}
-                fluid={image.childImageSharp.fluid}
+            <Tooltip key={friend.name} title={friend.name}>
+              <a
+                herf={friend.url}
+                target='_blank'
                 style={{
-                  flex: 1,
-                  maxWidth: 50,
-                  borderRadius: '100%'
+                  width: 50,
+                  color: 'transparent'
                 }}
-                imgStyle={{
-                  borderRadius: '50%'
-                }}
-              />
-              <div className='friend-card-content'>
-                <span>{friend.name}</span>
-              </div>
-            </li>
+              >
+                <Image
+                  className={classes.friend}
+                  fluid={image.childImageSharp.fluid}
+                  style={{
+                    flex: 1,
+                    maxWidth: 50,
+                    borderRadius: '100%',
+                    cursor: 'pointer'
+                  }}
+                  imgStyle={{
+                    borderRadius: '50%'
+                  }}
+                />
+              </a>
+            </Tooltip>
           )
         })}
       </ul>
-      <Divider className={classes.divider} light={theme.palette.type === 'light'}/>
+      <Divider className={classes.divider}
+        light={theme.palette.type === 'light'}/>
       <Bio>
         <div className={classes.introduction}>
           <img
@@ -102,7 +114,8 @@ const FriendPage = (props) => {
         </div>
       </Bio>
       <div className={classes.comment}>
-        <Disqus.DiscussionEmbed shortname={process.env.GATSBY_DISQUS_NAME} config={discusConfig}/>
+        <Disqus.DiscussionEmbed shortname={process.env.GATSBY_DISQUS_NAME}
+          config={discusConfig}/>
       </div>
     </Layout>
   )
