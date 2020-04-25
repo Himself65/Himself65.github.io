@@ -7,15 +7,17 @@ And all post are under `/content/blog` folder
 
 ### Looking for Something?
 
-- `/content/blog`: all blogs
+- `/content/blog` all blogs
 
-- `/examples`: all code examples
+- `/examples` all code examples
 
-- `/contept`: something about my idea
+- `/contept` something about my idea
 
-- `/src`: source code
+- `/src` source code
 
-### Test and Build Project
+- `/node` something about `Node.js` and `JavaScript` concept
+
+### Test and Build Blog
 
 ```bash
 yarn install    # install all depend
@@ -27,8 +29,7 @@ yarn build      # build blog
 
 ## LICENSE
 
-ALL code using [MIT](LICENSE) LICENSE.
-
-And all articles using
+ALL code using [MIT](LICENSE) LICENSE,
+with all articles(including `/node`, `/content/blog` folders) using
 [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/)
 LICENSE.
