@@ -2,13 +2,15 @@
 
 run the script
 
-```cmd
+```bat
 node ./index.js
 ```
 
 as we can see the output(under `node.js v14.0.0`):
 
-```cmd
+```console
+path/to/dir:$ node ./index.js
+
 function bind: 328.254ms
 anonymous function creation: 157.102ms
 exist function caller: 153.381ms
