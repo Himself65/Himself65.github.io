@@ -1,41 +1,16 @@
-#include <iostream>
-#include <string>
-#include <thread>
-
-class GlobalData
-{
-public:
-    static GlobalData &instance()
-    {
-        static GlobalData *_globalData = new GlobalData();
-        return *_globalData;
-    }
-
-    int32_t get_value() const
-    {
-        return value;
-    }
-
-    void set_value(int32_t val)
-    {
-        value = val;
-    }
-
-private:
-    GlobalData() : value(0) {}
-
-    int32_t value;
-};
+#include "header.h"
+#include "global_data.h"
 
 void plus_value(int times, const std::string &&name)
 {
     using namespace std;
+    cout << "start thraed:" << name << endl;
+    auto start = chrono::steady_clock::now();
     auto &globalData = GlobalData::instance();
     for (int i = 0; i < times; ++i)
     {
         int32_t previous = globalData.get_value();
         globalData.set_value(previous + 1);
-        this_thread::sleep_for(100ms);
         int32_t after = globalData.get_value();
         if ((previous + 1) != after)
         {
@@ -46,6 +21,9 @@ void plus_value(int times, const std::string &&name)
             exit(1);
         }
     }
+    auto end = std::chrono::steady_clock::now();
+    chrono::duration<double> elapsed_seconds = chrono::duration<double>(end - start);
+    cout << "cost time: " << elapsed_seconds.count() << "s" << endl;
 }
 
 int main()
@@ -53,7 +31,7 @@ int main()
     using std::thread;
     thread th1(plus_value, 1000, std::string("1 thread"));
     thread th2(plus_value, 1000, std::string("2 thread"));
-    th1.detach();
-    th2.detach();
+    th1.join();
+    th2.join();
     return 0;
 }

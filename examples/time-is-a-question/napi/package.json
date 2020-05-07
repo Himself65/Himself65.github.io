@@ -1,0 +1,8 @@
+{
+    "devDependencies": {
+        "node-gyp": "^6.1.0"
+    },
+    "dependencies": {
+        "node-addon-api": "*"
+    }
+}
