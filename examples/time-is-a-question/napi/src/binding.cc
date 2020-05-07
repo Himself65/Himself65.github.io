@@ -2,11 +2,13 @@
 #define NAPI_DISABLE_CPP_EXCEPTIONS
 #include <napi.h>
 
+static void noop(const Napi::CallbackInfo& info) {}
+
 static Napi::Value TestDeadlock(const Napi::CallbackInfo &info)
 {
     Napi::Env env = info.Env();
     Napi::Value async_name = Napi::String::New(env, "N-API Thread-safe Function Deadlock Test");
-    Napi::ThreadSafeFunction tsfn = Napi::ThreadSafeFunction::New(env, info[0].As<Napi::Function>(), async_name, 1, 1);
+    Napi::ThreadSafeFunction tsfn = Napi::ThreadSafeFunction::New(env, Napi::Function::New(env, noop), async_name, 1, 1);
     tsfn.BlockingCall();
     napi_status status = tsfn.BlockingCall();
     tsfn.Release();
