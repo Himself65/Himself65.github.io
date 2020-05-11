@@ -2,6 +2,12 @@
 
 code example and exercise for book named "x86 汇编语言：从实模式到保护模式", ISBN 978-7-121-18799-5
 
+## Requirement
+
+- [NASM](https://www.nasm.us/)
+
+- [QEMU](https://www.qemu.org/)
+
 ## Usage
 
 ```bash
