@@ -73,8 +73,9 @@ const FriendPage = (props) => {
           return (
             <Tooltip key={friend.name} title={friend.name}>
               <a
-                herf={friend.url}
+                href={friend.url}
                 target='_blank'
+                rel='noopener noreferrer'
                 style={{
                   width: 50,
                   color: 'transparent'
