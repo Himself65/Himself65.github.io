@@ -30,8 +30,23 @@ sudo i2cdetect -y 1
 60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 70: -- -- -- -- -- -- -- --
 ```
+
+## Bluetooth <a href="#link-3">[^3]</a>
+
+```bash
+bluetoothctl
+power on
+agent on
+scan on
+pair $MAC_ADDRESS
+trust $MAC_ADDRESS
+```
+
 ## Documents
 
-- Raspberry Pi Pinout, https://pinout.xyz/
+[[1]: Raspberry Pi Pinout, https://pinout.xyz/](https://pinout.xyz/)
 
-- Luma, which support render text/images to display, https://github.com/rm-hull/luma.core
+[[2]: Luma, which support render text/images to display, https://github.com/rm-hull/luma.core](https://github.com/rm-hull/luma.core)
+
+<a id="link-3"></a>
+[[^3]: https://www.digikey.com/en/maker/blogs/raspberry-pi-wi-fi-bluetooth-setup-how-to-configure-your-pi-4-model-b-3-model-b](https://www.digikey.com/en/maker/blogs/raspberry-pi-wi-fi-bluetooth-setup-how-to-configure-your-pi-4-model-b-3-model-b)
