@@ -2,7 +2,7 @@
 
 ## Usage
 
-### Image downlaod
+### Image download
 
 see https://www.raspberrypi.org/downloads/
 
