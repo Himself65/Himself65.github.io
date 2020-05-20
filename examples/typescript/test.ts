@@ -1,6 +1,7 @@
 import { mapObject } from '.'
 import { FnDecorator } from './src/proxy'
 import { multiMatrix } from './src/matrix'
+import { EventEmitter } from 'events'
 
 describe('function mapObject', () => {
   it('should pass', () => {
@@ -31,7 +32,7 @@ describe('function decorator', () => {
 })
 
 describe('function multiMatrix', () => {
-  it('should pass', () => {
+  it('base test', () => {
     const A = [
       [1, 0, 0],
       [0, 1, 0],
@@ -43,5 +44,19 @@ describe('function multiMatrix', () => {
       [-100, 233, 32]
     ]
     expect(multiMatrix(A, B)).toEqual([...B])
+  })
+
+  it('P53-9', () => {
+    const A = [
+      [0, 1, 0, 0],
+      [0, 0, 1, 0],
+      [0, 0, 0, 1],
+      [0, 0, 0, 0]
+    ]
+    const counts = (A: number[][]): number =>
+      A.reduce((count, row) =>
+        row.reduce((count, val) => count + val, count), 0)
+    const event = new EventEmitter().on('calculate', console.log)
+    expect(counts(multiMatrix(A, A, event))).toEqual(2)
   })
 })
