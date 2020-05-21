@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react'
 import { Link, graphql, useStaticQuery } from 'gatsby'
 import { ThemeProvider, createMuiTheme } from '@material-ui/core'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 import { Subject } from 'rxjs'
 
 import Toggle from './Toggle'

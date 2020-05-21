@@ -3,7 +3,7 @@
   display: flex;
   text-decoration-color: transparent;
   align-items: center;
-  justify-content: start;
+  justify-content: flex-start;
   cursor: pointer;
 }
 

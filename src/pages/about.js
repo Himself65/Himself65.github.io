@@ -141,7 +141,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    avatars: allFile {
+    avatars: allFile(filter: {relativeDirectory: {eq: "friend"}}) {
       edges {
         node {
           relativePath
