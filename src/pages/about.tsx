@@ -4,14 +4,16 @@ import Disqus from 'disqus-react'
 import Divider from '@material-ui/core/Divider'
 import { makeStyles, useTheme } from '@material-ui/core/styles'
 import { Tooltip, Typography } from '@material-ui/core'
-import Image from 'gatsby-image'
+import Image, { FluidObject } from 'gatsby-image'
 
+import type { AboutPageQuery } from '~types'
 import Layout from '../components/layout'
 import RouterTabs from '../components/RouterTabs'
 import SEO from '../components/seo'
 import Bio from '../components/bio'
 
 import '../style/friend.css'
+import { SiteSiteMetadataMenuLinks } from '~types'
 
 const useStyles = makeStyles({
   friends: {
@@ -38,11 +40,11 @@ const useStyles = makeStyles({
   }
 })
 
-const FriendPage = (props) => {
+const AboutPage: React.FC<{ data: AboutPageQuery; url: string }> = (props) => {
   const { data } = props
   const theme = useTheme()
   const classes = useStyles()
-  const siteTitle = data.site.siteMetadata.title
+  const siteTitle = data.site?.siteMetadata?.title
   const discusConfig = {
     url: props.url,
     identifier: 'global-comment',
@@ -54,10 +56,10 @@ const FriendPage = (props) => {
     .map(avatar => avatar.node)
 
   return (
-    <Layout location={props.location} title={siteTitle}>
+    <Layout title={siteTitle}>
       <SEO title='About'/>
       <RouterTabs
-        routers={data.site.siteMetadata.menuLinks}
+        routers={data.site?.siteMetadata?.menuLinks as SiteSiteMetadataMenuLinks[]}
         currentPage='/about'
       />
       <Typography
@@ -67,13 +69,13 @@ const FriendPage = (props) => {
         My Friends
       </Typography>
       <ul className={classes.friends}>
-        {data.site.siteMetadata.friendship.map(friend => {
+        {data.site?.siteMetadata?.friendship?.map(friend => {
           const image = avatars.find(
-            v => new RegExp(friend.image).test(v.relativePath))
+            v => new RegExp(friend?.image ?? '').test(v.relativePath))
           return (
-            <Tooltip key={friend.name} title={friend.name}>
+            <Tooltip key={friend?.name ?? ''} title={friend?.name ?? ''}>
               <a
-                href={friend.url}
+                href={friend?.url ?? ''}
                 target='_blank'
                 rel='noopener noreferrer'
                 style={{
@@ -83,7 +85,7 @@ const FriendPage = (props) => {
               >
                 <Image
                   className={classes.friend}
-                  fluid={image.childImageSharp.fluid}
+                  fluid={image?.childImageSharp?.fluid as FluidObject}
                   style={{
                     flex: 1,
                     maxWidth: 50,
@@ -115,17 +117,18 @@ const FriendPage = (props) => {
         </div>
       </Bio>
       <div className={classes.comment}>
-        <Disqus.DiscussionEmbed shortname={process.env.GATSBY_DISQUS_NAME}
+        <Disqus.DiscussionEmbed
+          shortname={process.env.GATSBY_DISQUS_NAME as string}
           config={discusConfig}/>
       </div>
     </Layout>
   )
 }
 
-export default FriendPage
+export default AboutPage
 
 export const pageQuery = graphql`
-  query {
+  query AboutPage {
     site {
       siteMetadata {
         title

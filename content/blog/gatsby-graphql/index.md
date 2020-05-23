@@ -50,7 +50,7 @@ module.exports = {
 on '/friend' page component
 
 ```js
-const FriendPage = (props) => {
+const AboutPage = (props) => {
   const { data } = props
   const siteTitle = data.site.siteMetadata.title
   return (
