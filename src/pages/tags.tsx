@@ -28,7 +28,7 @@ const TagsPage: React.FC<TagsPageProps> = ({ data }) => {
     <Layout title={data.site?.siteMetadata?.title || 'UNKNOWN'}>
       <RouterTabs
         routers={
-          (data.site?.siteMetadata!?.menuLinks ?? []) as
+          (data.site?.siteMetadata?.menuLinks ?? []) as
             // i donn't know why this always fail
             // but success after added 'as' expression
             SiteSiteMetadataMenuLinks[]

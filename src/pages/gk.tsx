@@ -18,8 +18,8 @@ const GKPage: React.FC<GKPageProps> = ({ data }) => {
     .map(gk => ({
       ...gk,
       image: images.find(
-        image => image.relativePath.endsWith(gk!.image ?? '')
-      )!.childImageSharp!.fluid as FluidObject
+        image => image.relativePath.endsWith(gk?.image ?? '')
+      )?.childImageSharp?.fluid as FluidObject
     }) as GKState)
   return (
     <Layout title={data.site?.siteMetadata?.title}>

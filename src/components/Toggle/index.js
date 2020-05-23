@@ -38,7 +38,7 @@ export default class Toggle extends PureComponent {
     }
   }
 
-  static getDerivedStateFromProps (nextProps, prevState) {
+  static getDerivedStateFromProps (nextProps) {
     if ('checked' in nextProps) {
       return {
         checked: !!nextProps.checked,
@@ -105,7 +105,7 @@ export default class Toggle extends PureComponent {
     }
   }
 
-  handleTouchCancel = event => {
+  handleTouchCancel = () => {
     if (this.startX != null) {
       this.touchStarted = false
       this.startX = null
@@ -150,7 +150,7 @@ export default class Toggle extends PureComponent {
   }
 
   render () {
-    const { className, icons: _icons, ...inputProps } = this.props
+    const { className, ...inputProps } = this.props
     const classes =
       'react-toggle' +
       (this.state.checked ? ' react-toggle--checked' : '') +
