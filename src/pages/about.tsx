@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Disqus from 'disqus-react'
 import Divider from '@material-ui/core/Divider'
-import { makeStyles, useTheme } from '@material-ui/core/styles'
+import { makeStyles } from '@material-ui/core/styles'
 import { Tooltip, Typography } from '@material-ui/core'
 import Image, { FluidObject } from 'gatsby-image'
 
@@ -42,7 +42,6 @@ const useStyles = makeStyles({
 
 const AboutPage: React.FC<{ data: AboutPageQuery; url: string }> = (props) => {
   const { data } = props
-  const theme = useTheme()
   const classes = useStyles()
   const siteTitle = data.site?.siteMetadata?.title
   const discusConfig = {
@@ -101,8 +100,7 @@ const AboutPage: React.FC<{ data: AboutPageQuery; url: string }> = (props) => {
           )
         })}
       </ul>
-      <Divider className={classes.divider}
-        light={theme.palette.type === 'light'}/>
+      <Divider className={classes.divider}/>
       <Bio>
         <div className={classes.introduction}>
           <img

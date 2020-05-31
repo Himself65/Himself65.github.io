@@ -1,31 +1,38 @@
 import React, { useEffect, useMemo, useState } from 'react'
 import { Link, graphql, useStaticQuery } from 'gatsby'
-import { ThemeProvider, createMuiTheme } from '@material-ui/core'
+import { ThemeProvider, createMuiTheme, CssBaseline } from '@material-ui/core'
+import typography, { rhythm } from '../utils/typography'
+import { makeStyles } from '@material-ui/styles'
 import { Helmet } from 'react-helmet'
 import { Subject } from 'rxjs'
 
 import Toggle from './Toggle'
 import sun from '../assets/sun.png'
 import moon from '../assets/moon.png'
-import { rhythm } from '../utils/typography'
+
 import moment from 'moment'
 import NeverUseZhihu from './NeverUseZhihu'
 
-const defaultTheme = createMuiTheme({})
+const useStyle = makeStyles({
+  // todo: font-family
+})
 
 const Layout: React.FC<{
   title: string | null | undefined
 }> = props => {
   const { title = 'UNKNOWN', children } = props
+  const classes = useStyle()
   const [theme, setTheme] = useState<'dark' | 'light' | null>(null)
   const themeSubject = useMemo(() => new Subject<'light' | 'dark'>(), [])
   const themeConfig = useMemo(() => createMuiTheme({
-    ...defaultTheme,
     palette: {
-      // todo
-      ...defaultTheme.palette,
+      background: {
+        default: theme === 'light' ? '#f9fafb' : '#363c48',
+        paper: theme === 'light' ? '#ffffff' : '#282c35'
+      },
       type: theme || 'light'
-    }
+    },
+    typography
   }), [theme])
   useEffect(() => {
     setTheme(
@@ -69,6 +76,7 @@ const Layout: React.FC<{
   )
   return (
     <ThemeProvider theme={themeConfig}>
+      <CssBaseline classes={classes}/>
       <NeverUseZhihu/>
       <div
         style={{
