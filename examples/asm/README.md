@@ -29,7 +29,7 @@ qemu-system-x86_64 -s -S -hda ./1.bin -nographic
 
 Now, turn on the GDB
 
-```ps
+```powershell
 PS C:\Users\Himself65> gdb
 (gdb) target remote localhost:1234
 Remote debugging using localhost:1234
