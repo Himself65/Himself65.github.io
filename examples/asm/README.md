@@ -8,6 +8,8 @@ code example and exercise for book named "x86 汇编语言：从实模式到保�
 
 - [QEMU](https://www.qemu.org/)
 
+- [GDB](http://www.gnu.org/software/gdb)
+
 ## Usage
 
 ```bash
