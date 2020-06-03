@@ -18,7 +18,10 @@ nasm -f bin 1.asm -o 1.bin
 
 ```bash
 # running 1.img using qemu-system-x86_64
-qemu-system-x86_64 ./1.bin
+# '-m' is short for memory size
+qemu-system-x86_64 ./1.bin -m 512
+# same as
+qemu-system-x86_64 --drive file=1.bin,index=0,media=disk,format=raw -m 512
 ```
 
 ## Debug using `GDB`
