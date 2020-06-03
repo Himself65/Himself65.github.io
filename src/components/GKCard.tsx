@@ -1,17 +1,14 @@
 import React, { CSSProperties } from 'react'
 import Img, { FluidObject } from 'gatsby-image'
-import { Card, CardContent, Typography, useTheme } from '@material-ui/core'
-import { makeStyles } from '@material-ui/styles'
+import { Card, CardContent, Typography, useTheme, makeStyles } from '@material-ui/core'
 
 const useStyles = makeStyles(theme => ({
   root: {
     background: 'var(--bg)',
     display: 'flex',
-    // @ts-ignore
     [theme.breakpoints.down('md')]: {
       flexDirection: 'column-reverse'
     },
-    // @ts-ignore
     [theme.breakpoints.up('md')]: {
       flexDirection: 'row-reverse'
     }
@@ -21,7 +18,6 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     flexDirection: 'column',
     color: 'var(--textNormal)',
-    // @ts-ignore
     [theme.breakpoints.down('md')]: {
       width: '100%'
     }
@@ -30,7 +26,6 @@ const useStyles = makeStyles(theme => ({
     width: '50%',
     background: 'transparent',
     backgroundSize: '100%',
-    // @ts-ignore
     [theme.breakpoints.down('md')]: {
       width: '100%'
     }
