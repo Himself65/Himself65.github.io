@@ -73,3 +73,5 @@ cr0            0x60000010          [ CD NW ET ]
 --Type <RET> for more, q to quit, c to continue without paging--
 (gdb)
 ```
+
+More details on `gdb` see [document](https://sourceware.org/gdb/current/onlinedocs/gdb/)
