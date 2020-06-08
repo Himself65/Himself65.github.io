@@ -49,3 +49,5 @@ Breakpoint 1, 0x00007c00 in ?? ()
 ```
 
 More details on `gdb` see [document](https://sourceware.org/gdb/current/onlinedocs/gdb/)
+
+NSAM document see [nasm.us](https://www.nasm.us/xdoc)
