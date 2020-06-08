@@ -34,44 +34,18 @@ qemu-system-x86_64 -s -S -hda ./1.bin -nographic
 
 Now, turn on the GDB
 
+> reference: https://stackoverflow.com/questions/14242958/debugging-bootloader-with-gdb-in-qemu
+
 ```powershell
 PS C:\Users\Himself65> gdb
 (gdb) target remote localhost:1234
-Remote debugging using localhost:1234
-warning: No executable has been specified and target does not support
-determining executable automatically.  Try using the "file" command.
-0x000000000000fff0 in ?? ()
-(gdb) i r
-rax            0x0                 0
-rbx            0x0                 0
-rcx            0x0                 0
-rdx            0x663               1635
-rsi            0x0                 0
-rdi            0x0                 0
-rbp            0x0                 0x0
-rsp            0x0                 0x0
-r8             0x0                 0
-r9             0x0                 0
-r10            0x0                 0
-r11            0x0                 0
-r12            0x0                 0
-r13            0x0                 0
-r14            0x0                 0
-r15            0x0                 0
-rip            0xfff0              0xfff0
-eflags         0x2                 [ IOPL=0 ]
-cs             0xf000              61440
-ss             0x0                 0
-ds             0x0                 0
-es             0x0                 0
-fs             0x0                 0
-gs             0x0                 0
-fs_base        0x0                 0
-gs_base        0x0                 0
-k_gs_base      0x0                 0
-cr0            0x60000010          [ CD NW ET ]
---Type <RET> for more, q to quit, c to continue without paging--
-(gdb)
+(gdb)set architecture i8086
+(gdb) br *0x7c00
+(gdb) c
+
+Breakpoint 1, 0x00007c00 in ?? ()
+(gdb) x/i $eip
+=> 0x7c00:      jmp    0x7c3e
 ```
 
 More details on `gdb` see [document](https://sourceware.org/gdb/current/onlinedocs/gdb/)
