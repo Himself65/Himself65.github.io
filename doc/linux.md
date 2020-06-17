@@ -4,7 +4,7 @@
 
 ## Proxy
 
-#### Git
+### Git
 
 ```bash
 # set
@@ -16,7 +16,7 @@ git config --global --unset http.proxy
 git config --global --unset https.proxy
 ```
 
-#### Global
+### Global
 
 ```bash
 export http_proxy=http://127.0.0.1:1080
@@ -26,7 +26,7 @@ unset http_proxy
 unset https_proxy
 ```
 
-#### APT
+### APT
 
 ```bash
 sudo touch /etc/apt/apt.conf.d/proxy.conf
@@ -42,7 +42,7 @@ Acquire {
 
 ## Software Mirror Site
 
-- https://mirrors.tuna.tsinghua.edu.cn/
+[Website](https://mirrors.tuna.tsinghua.edu.cn/)
 
 if there's something wrong about key, try this
 
@@ -52,8 +52,10 @@ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys $UNKNOWN_KEY
 
 ## Zsh
 
-https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH
+[Install](https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH)
 
-## NVM
+## Utilities
 
-https://github.com/nvm-sh/nvm
+- [nvm](https://github.com/nvm-sh/nvm)
+
+- [bat](https://github.com/sharkdp/bat)
