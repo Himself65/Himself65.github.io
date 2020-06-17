@@ -24,3 +24,7 @@ systemctl status libvirtd
 ## Run OVMF
 
 Follow this tutorial [OVMF](https://wiki.ubuntu.com/UEFI/OVMF).
+
+## References
+
+[UEFI-osdev](https://wiki.osdev.org/UEFI)
