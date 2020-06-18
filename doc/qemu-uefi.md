@@ -25,6 +25,10 @@ systemctl status libvirtd
 
 Follow this tutorial [OVMF](https://wiki.ubuntu.com/UEFI/OVMF).
 
+## Kernel Debug
+
+<https://wiki.osdev.org/Kernel_Debugging>
+
 ## References
 
 [UEFI-osdev](https://wiki.osdev.org/UEFI)
