@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import type { IndexPageQuery } from '~types'
+import type { IndexPageQuery, SiteSiteMetadataMenuLinks } from '~types'
 
 import RouterTabs from '../components/RouterTabs'
 import Bio from '../components/bio'
@@ -10,7 +10,6 @@ import SEO from '../components/seo'
 
 import '../style/index.css'
 import PostList from '../components/PostList'
-import { SiteSiteMetadataMenuLinks } from '~types'
 
 const BlogIndex: React.FC<{ data: IndexPageQuery }> = ({ data }) => {
   const siteTitle = data.site?.siteMetadata?.title
