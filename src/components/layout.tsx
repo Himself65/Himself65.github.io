@@ -1,10 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react'
 import { Link, graphql, useStaticQuery } from 'gatsby'
-import {
-  Link as MaterialLink,
-  Button,
-  SnackbarContent
-} from '@material-ui/core'
 import { ThemeProvider, createMuiTheme, CssBaseline } from '@material-ui/core'
 import typography, { rhythm } from '../utils/typography'
 import { makeStyles } from '@material-ui/styles'
@@ -17,19 +12,10 @@ import moon from '../assets/moon.png'
 
 import moment from 'moment'
 import NeverUseZhihu from './NeverUseZhihu'
+import BLM from './BLM'
 
 const useStyle = makeStyles({
   // todo: font-family
-  blm: {
-    background: '#000',
-    color: '#fff',
-    fontSize: '1.5rem',
-    marginBottom: '.7rem'
-  },
-  blmAction: {
-    marginLeft: '0',
-    paddingLeft: '0'
-  }
 })
 
 const Layout: React.FC<{
@@ -113,22 +99,7 @@ const Layout: React.FC<{
             }
           ]}
         />
-        <SnackbarContent
-          classes={{
-            root: classes.blm,
-            action: classes.blmAction
-          }}
-          message=''
-          action={
-            <MaterialLink
-              style={{ color: '#fff' }}
-              href='https://nodejs.org/en/black-lives-matter/'
-              target='_blank'
-              rel='noopener noreferrer'
-            >
-              #BlackLivesMatter
-            </MaterialLink>
-          }/>
+        <BLM/>
         <header
           style={{
             display: 'flex',
