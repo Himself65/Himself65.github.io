@@ -7,7 +7,6 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const blogPost = path.resolve('./src/templates/blog-post.js')
   const tagTemplate = path.resolve('./src/templates/tag.tsx')
-  const docTemplate = path.resolve('./src/templates/doc.tsx')
   const result = await graphql(
     `
       {
@@ -52,7 +51,6 @@ exports.createPages = async ({ graphql, actions }) => {
   // Create blog posts pages.
   const posts = result.data.postsRemark.edges
   const tags = result.data.tagsGroup.group
-  const docs = result.data.docsGroup.edges
 
   posts.forEach((post, index) => {
     const previous = index === posts.length - 1 ? null : posts[index + 1].node
@@ -77,19 +75,6 @@ exports.createPages = async ({ graphql, actions }) => {
       component: tagTemplate,
       context: {
         tag: tag.fieldValue
-      }
-    })
-  })
-
-  // create doc
-  docs.forEach(({ node }) => {
-    const docUrl = `/doc/${kebabCase(node.name)}`
-    createPage({
-      path: docUrl,
-      component: docTemplate,
-      context: {
-        title: node.name,
-        docHTML: node.childMarkdownRemark.html
       }
     })
   })
