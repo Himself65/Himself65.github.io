@@ -1,5 +1,5 @@
 ---
-title: 整个OS —— 零
+title: 整个OS[0]
 tags: ["code"]
 date: "2020-06-21"
 ---
