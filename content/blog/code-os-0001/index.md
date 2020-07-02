@@ -1,7 +1,7 @@
 ---
 title: 整个OS[1] —— 内存管理（一）
 tags: ["code"]
-date: "2020-06-21"
+date: "2020-07-02"
 ---
 
 > [英文原文地址](http://www.osdever.net/tutorials/view/memory-management-1)，by Tim Robinson
