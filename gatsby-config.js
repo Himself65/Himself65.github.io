@@ -74,7 +74,7 @@ module.exports = {
       {
         image: '4.png',
         name: 'DARLING in the FRANXX 莓',
-        state: '已预定',
+        state: '已购买',
         price: 667,
         links: [
           {
@@ -86,7 +86,7 @@ module.exports = {
       {
         image: '5.png',
         name: '初音未来 公式服',
-        state: '已预定',
+        state: '已购买',
         price: 599,
         links: [
           {
