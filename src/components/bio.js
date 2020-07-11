@@ -55,8 +55,8 @@ const Bio = ({ children = null }) => {
       />
       {children ||
       <p>
-        Written by <strong>{author}</strong>, node.js collaborator,
-        undergraduate, and working from school now.
+        Written by <strong>{author}</strong>, node.js and hexo.js collaborator,
+        undergraduate, forcus on Open Source.
         {' '}
         <br/>
         <span>You can follow him on </span>
