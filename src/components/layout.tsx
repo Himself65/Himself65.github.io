@@ -60,7 +60,8 @@ const Layout: React.FC<{
     <h3
       style={{
         fontFamily: 'Montserrat, sans-serif',
-        marginTop: 0
+        marginTop: 'auto',
+        marginBottom: 'auto'
       }}
     >
       <Link
@@ -105,6 +106,7 @@ const Layout: React.FC<{
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
+            marginTop: '2.625rem',
             marginBottom: '2.625rem'
           }}
         >
