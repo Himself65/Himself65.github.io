@@ -1,7 +1,8 @@
-import React from 'react'
 import { graphql } from 'gatsby'
+import React from 'react'
 
 import { SiteSiteMetadataMenuLinks, TagPageQuery } from '~types'
+
 import Layout from '../components/layout'
 import PostList from '../components/PostList'
 import RouterTabs from '../components/RouterTabs'

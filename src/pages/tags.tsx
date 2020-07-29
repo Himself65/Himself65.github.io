@@ -1,8 +1,9 @@
-import React from 'react'
-import { graphql, Link } from 'gatsby'
-import { SiteSiteMetadataMenuLinks, TagsPageQuery } from '~types'
-import Chip from '@material-ui/core/Chip'
 import { makeStyles } from '@material-ui/core'
+import Chip from '@material-ui/core/Chip'
+import { graphql, Link } from 'gatsby'
+import React from 'react'
+
+import { SiteSiteMetadataMenuLinks, TagsPageQuery } from '~types'
 
 import Layout from '../components/layout'
 import RouterTabs from '../components/RouterTabs'

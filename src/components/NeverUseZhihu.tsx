@@ -1,6 +1,6 @@
-import React, { useCallback, useEffect, useState } from 'react'
 import Snackbar from '@material-ui/core/Snackbar'
 import Alert from '@material-ui/lab/Alert'
+import React, { useCallback, useEffect, useState } from 'react'
 
 const NeverUseZhihu: React.FC = () => {
   const [open, setOpen] = useState(true)

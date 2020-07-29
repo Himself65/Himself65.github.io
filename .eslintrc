@@ -17,7 +17,8 @@
     "react",
     "react-hooks",
     "jsx-a11y",
-    "graphql"
+    "graphql",
+    "simple-import-sort"
   ],
   "rules": {
     "eqeqeq": "error",
@@ -25,6 +26,8 @@
     "no-var": "error",
     "prefer-const": "error",
     "sort-imports": "off",
+    "import/order": "off",
+    "simple-import-sort/sort": "error",
     "no-unused-vars": "off",
     "no-unused-expressions": "warn",
     "react/jsx-filename-extension": [

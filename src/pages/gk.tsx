@@ -1,11 +1,13 @@
+import { graphql } from 'gatsby'
+import { FluidObject } from 'gatsby-image'
 import React from 'react'
-import SEO from '../components/seo'
+
+import { GkPageQuery, SiteSiteMetadataMenuLinks } from '~types'
+
+import GKCard, { GKState } from '../components/GKCard'
 import Layout from '../components/layout'
 import RouterTabs from '../components/RouterTabs'
-import { GkPageQuery, SiteSiteMetadataMenuLinks } from '~types'
-import { graphql } from 'gatsby'
-import GKCard, { GKState } from '../components/GKCard'
-import { FluidObject } from 'gatsby-image'
+import SEO from '../components/seo'
 
 interface GKPageProps {
   data: GkPageQuery

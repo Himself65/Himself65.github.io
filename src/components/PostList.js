@@ -1,5 +1,5 @@
-import React, { Fragment } from 'react'
 import { Link } from 'gatsby'
+import React, { Fragment } from 'react'
 
 import { rhythm } from '../utils/typography'
 

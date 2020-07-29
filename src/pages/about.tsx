@@ -1,19 +1,20 @@
-import React from 'react'
-import { graphql } from 'gatsby'
-import Disqus from 'disqus-react'
+import '../style/friend.css'
+
+import { Tooltip, Typography } from '@material-ui/core'
 import Divider from '@material-ui/core/Divider'
 import { makeStyles } from '@material-ui/core/styles'
-import { Tooltip, Typography } from '@material-ui/core'
+import Disqus from 'disqus-react'
+import { graphql } from 'gatsby'
 import Image, { FluidObject } from 'gatsby-image'
+import React from 'react'
 
 import type { AboutPageQuery } from '~types'
+import { SiteSiteMetadataMenuLinks } from '~types'
+
+import Bio from '../components/bio'
 import Layout from '../components/layout'
 import RouterTabs from '../components/RouterTabs'
 import SEO from '../components/seo'
-import Bio from '../components/bio'
-
-import '../style/friend.css'
-import { SiteSiteMetadataMenuLinks } from '~types'
 
 const useStyles = makeStyles({
   friends: {

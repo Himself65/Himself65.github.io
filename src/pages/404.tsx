@@ -1,7 +1,8 @@
-import React from 'react'
 import { graphql } from 'gatsby'
+import React from 'react'
 
 import type { NotFoundPageQuery } from '~types'
+
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 

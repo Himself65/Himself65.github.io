@@ -1,6 +1,6 @@
-import React, { CSSProperties } from 'react'
+import { Card, CardContent, makeStyles, Typography, useTheme } from '@material-ui/core'
 import Img, { FluidObject } from 'gatsby-image'
-import { Card, CardContent, Typography, useTheme, makeStyles } from '@material-ui/core'
+import React, { CSSProperties } from 'react'
 
 const useStyles = makeStyles(theme => ({
   root: {

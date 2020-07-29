@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import Tab from '@material-ui/core/Tab'
+import Tabs from '@material-ui/core/Tabs'
 import { navigate } from 'gatsby'
+import React, { useState } from 'react'
 
 import { SiteSiteMetadataMenuLinks } from '~types'
-import Tabs from '@material-ui/core/Tabs'
-import Tab from '@material-ui/core/Tab'
 
 const RouterTabs: React.FC<{
   routers: Pick<SiteSiteMetadataMenuLinks, 'name' | 'link' | 'icon'>[]
