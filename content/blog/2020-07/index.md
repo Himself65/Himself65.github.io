@@ -3,10 +3,6 @@ title: Hexo.js | ISU | 旅游
 tags: ["life"]
 date: "2020-07-31"
 ---
-# 前言
-
-None
-
 ## Hexo.js
 
 这个月，成为了 [`Hexo.js`](https://github.com/hexojs/hexo) member
