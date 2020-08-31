@@ -12,7 +12,7 @@ export const BlogPostTemplate = (props) => {
   const post = props.data.markdownRemark
   const siteTitle = props.data.site.siteMetadata.title
   const { previous, next } = props.pageContext
-
+  const { display } = post.frontmatter.display
   return (
     <Layout location={props.location} title={siteTitle}>
       <SEO
@@ -53,7 +53,7 @@ export const BlogPostTemplate = (props) => {
       <nav>
         <ul
           style={{
-            display: 'flex',
+            display: display ? 'flex' : 'none',
             flexWrap: 'wrap',
             justifyContent: 'space-between',
             listStyle: 'none',
@@ -96,6 +96,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date
+        display
       }
     }
   }
