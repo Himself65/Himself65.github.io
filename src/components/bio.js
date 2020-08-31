@@ -5,7 +5,7 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import { graphql, useStaticQuery } from 'gatsby'
+import { graphql, Link, useStaticQuery } from 'gatsby'
 import Image from 'gatsby-image'
 import React from 'react'
 
@@ -55,7 +55,7 @@ const Bio = ({ children = null }) => {
       />
       {children ||
       <p>
-        Written by <strong>{author}</strong>, node.js and hexo.js collaborator,
+        Written by <Link to='/me'><strong>{author}</strong></Link>, node.js and hexo.js collaborator,
         iowa state university undergraduate, forces on Open Source.
         {' '}
         <br/>
