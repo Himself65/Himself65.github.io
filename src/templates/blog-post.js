@@ -12,7 +12,7 @@ export const BlogPostTemplate = (props) => {
   const post = props.data.markdownRemark
   const siteTitle = props.data.site.siteMetadata.title
   const { previous, next } = props.pageContext
-  const { display } = post.frontmatter.display
+  const { display = true } = post.frontmatter
   return (
     <Layout location={props.location} title={siteTitle}>
       <SEO
