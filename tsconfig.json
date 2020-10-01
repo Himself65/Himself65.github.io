@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "baseUrl": "src",
+    "baseUrl": ".",
     "lib": [
       "dom",
       "dom.iterable",
@@ -9,7 +9,7 @@
     ],
     "paths": {
       "~types": [
-        "../types/graphql-types.ts"
+        "./types/graphql-types.ts"
       ]
     },
     "allowJs": true,

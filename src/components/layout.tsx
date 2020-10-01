@@ -9,8 +9,6 @@ import { Subject } from 'rxjs'
 import moon from '../assets/moon.png'
 import sun from '../assets/sun.png'
 import typography, { rhythm } from '../utils/typography'
-import BLM from './BLM'
-import NeverUseZhihu from './NeverUseZhihu'
 import Toggle from './Toggle'
 
 const useStyle = makeStyles({
@@ -78,7 +76,6 @@ const Layout: React.FC<{
   return (
     <ThemeProvider theme={themeConfig}>
       <CssBaseline classes={classes}/>
-      <NeverUseZhihu/>
       <div
         style={{
           color: 'var(--textNormal)',
@@ -99,7 +96,6 @@ const Layout: React.FC<{
             }
           ]}
         />
-        <BLM/>
         <header
           style={{
             display: 'flex',
