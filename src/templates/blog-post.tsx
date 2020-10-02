@@ -3,19 +3,22 @@ import 'prismjs/themes/prism-solarizedlight.css'
 import { graphql } from 'gatsby'
 import React from 'react'
 
+import type { BlogPostBySlugQuery } from '~types'
+
 import Bio from '../components/bio'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 import { rhythm, scale } from '../utils/typography'
 
-export const BlogPostTemplate = (props) => {
+export const BlogPostTemplate: React.FC<{
+  data: BlogPostBySlugQuery
+}> = (props) => {
   const post = props.data.markdownRemark
-  const siteTitle = props.data.site.siteMetadata.title
+  const siteTitle = props.data?.site?.siteMetadata?.title as string
   return (
-    <Layout location={props.location} title={siteTitle}>
+    <Layout title={siteTitle}>
       <SEO
-        title={post.frontmatter.title}
-        description={post.frontmatter.description || post.excerpt}
+        title={post?.frontmatter?.title}
       />
       <article>
         <header>
@@ -25,7 +28,7 @@ export const BlogPostTemplate = (props) => {
               marginBottom: 0
             }}
           >
-            {post.frontmatter.title}
+            {post?.frontmatter?.title}
           </h1>
           <p
             style={{
@@ -34,10 +37,10 @@ export const BlogPostTemplate = (props) => {
               marginBottom: rhythm(1)
             }}
           >
-            {post.frontmatter.date}
+            {post?.frontmatter?.date}
           </p>
         </header>
-        <section dangerouslySetInnerHTML={{ __html: post.html }}/>
+        <section dangerouslySetInnerHTML={{ __html: post?.html as string }}/>
         <hr
           style={{
             marginBottom: rhythm(1)
