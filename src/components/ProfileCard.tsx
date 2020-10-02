@@ -68,7 +68,7 @@ const ProfileCard: React.FC = () => {
         <Grid container item>
           <Grid item>
             <Typography variant='body1'>
-              An Iowa state university freshman, member of node.js, hexo.js.
+              An Iowa state university freshman, member of node.js & hexo.js.
             </Typography>
             <Typography variant='body2'>
               Recently learning Linux kernel and OS development
