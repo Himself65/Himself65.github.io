@@ -12,28 +12,6 @@ module.exports = {
       github: 'himself65',
       instagram: 'himself_65'
     },
-    menuLinks: [
-      {
-        name: 'Home',
-        link: '/',
-        icon: 'Home'
-      },
-      {
-        name: 'About',
-        link: '/about',
-        icon: 'Group'
-      },
-      {
-        name: 'GK',
-        link: '/gk',
-        icon: 'Favourite'
-      },
-      {
-        name: 'Tags',
-        link: '/tags',
-        icon: 'LocalOffer'
-      }
-    ],
     friendship: [...friendship],
     gks: [
       {
