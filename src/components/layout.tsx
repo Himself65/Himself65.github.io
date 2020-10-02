@@ -144,7 +144,7 @@ const Layout: React.FC<{
           on {moment(data.site.buildTime).local().format('YYYY D Mo, H:m')}{' '}
           with <a href='https://www.gatsbyjs.org'>Gatsby</a>
           <br/>
-          {!brief
+          {brief
             ? null
             : (<span style={{ color: '#999', fontSize: '0.8rem' }}>
               These articles are licensed under a{' '}
