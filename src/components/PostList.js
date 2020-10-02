@@ -1,37 +1,29 @@
-import { Link } from 'gatsby'
+import { Grid } from '@material-ui/core'
 import React, { Fragment } from 'react'
 
-import { rhythm } from '../utils/typography'
+import ArticleCard from './ArticleCard'
 
 const PostList = ({ posts = [] }) => {
   return (
     <Fragment>
-      {posts.map(({ node }) => {
-        const title = node.frontmatter.title || node.fields.slug
-        return (
-          <article key={node.fields.slug}>
-            <header>
-              <h3
-                style={{
-                  marginBottom: rhythm(1 / 4)
-                }}
-              >
-                <Link style={{ boxShadow: 'none' }} to={node.fields.slug}>
-                  {title}
-                </Link>
-              </h3>
-              <small>{node.frontmatter.date}</small>
-            </header>
-            <section>
-              <p
-                dangerouslySetInnerHTML={{
-                  __html: node.frontmatter.description || node.excerpt
-                }}
+      <Grid container spacing={2}>
+        {posts.map(({ node }) => {
+          const title = node.frontmatter.title || node.fields.slug
+          return (
+            <Grid
+              key={title}
+              item
+            >
+              <ArticleCard
+                to={node.fields.slug}
+                title={title}
+                date={node.frontmatter.date}
+                description={node.frontmatter.description || node.excerpt}
               />
-            </section>
-          </article>
-        )
-      })}
+            </Grid>
+          )
+        })}
+      </Grid>
     </Fragment>
   )
 }
