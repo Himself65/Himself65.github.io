@@ -4,8 +4,10 @@ import {
   Paper,
   Typography
 } from '@material-ui/core'
-import GitHubIcon from '@material-ui/icons/Github'
-import TwitterIcon from '@material-ui/icons/Twitter'
+import {
+  GitHub as GitHubIcon,
+  Twitter as TwitterIcon
+} from '@material-ui/icons'
 import { graphql, useStaticQuery } from 'gatsby'
 import Image, { FixedObject } from 'gatsby-image'
 import React from 'react'
