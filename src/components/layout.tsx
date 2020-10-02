@@ -141,8 +141,8 @@ const Layout: React.FC<{
         <main>{children}</main>
         <footer style={{ marginTop: '2rem' }}>
           © {new Date().getFullYear()}, Built {' '}
-          on {moment(data.site.buildTime).local().format('YYYY D Mo, H:m')}{' '}
-          with <a href='https://www.gatsbyjs.org'>Gatsby</a>
+          on {moment(data.site.buildTime).local().format('LLLL')}{' '}
+          using <a href='https://www.gatsbyjs.org'>Gatsby</a>
           <br/>
           {brief
             ? null
