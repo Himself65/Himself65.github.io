@@ -3,9 +3,9 @@ const friendship = require('./friendship')
 
 module.exports = {
   siteMetadata: {
-    title: 'Himself65 Blog',
+    title: 'Himself65 (@himself65)',
     author: 'Himself65',
-    description: 'Studying, Gaming, and Coding',
+    description: 'Personal blog by Himself65, about coding and life.',
     siteUrl: 'https://himself65.com/',
     social: {
       twitter: 'himself_65',
