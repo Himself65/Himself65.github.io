@@ -35,7 +35,7 @@ const ProfileCard: React.FC = () => {
       }
     }
   `)
-  const { author, social } = data.site.siteMetadata
+  const siteMetadata = data.site!.siteMetadata
   return (
     <Paper elevation={0}>
       <Grid container spacing={2}>
@@ -43,7 +43,7 @@ const ProfileCard: React.FC = () => {
           <Grid item>
             <Image
               fixed={data.avatar!.childImageSharp!.fixed as FixedObject}
-              alt={author}
+              alt={siteMetadata?.author as string}
               style={{
                 marginRight: rhythm(1 / 2),
                 marginBottom: 0,
@@ -85,7 +85,7 @@ const ProfileCard: React.FC = () => {
                 color='primary'
                 clickable
                 component='a'
-                href={social.twitter}
+                href={siteMetadata?.social?.twitter as string}
                 variant='outlined'
                 icon={<TwitterIcon fontSize='small' />}
                 label={
@@ -100,7 +100,7 @@ const ProfileCard: React.FC = () => {
                 color='secondary'
                 clickable
                 component='a'
-                href={social.github}
+                href={siteMetadata?.social?.github as string}
                 variant='outlined'
                 icon={<GitHubIcon fontSize='small' />}
                 label={
