@@ -1,6 +1,5 @@
 import '../style/index.css'
 
-import { graphql } from 'gatsby'
 import React from 'react'
 
 import type { IndexPageQuery } from '~types'
@@ -9,9 +8,9 @@ import Layout from '../components/layout'
 import ProfileCard from '../components/ProfileCard'
 import SEO from '../components/seo'
 
-const BlogIndex: React.FC<{ data: IndexPageQuery }> = ({ data }) => {
+const BlogIndex: React.FC<{ data: IndexPageQuery }> = () => {
   return (
-    <Layout title=''>
+    <Layout title='' brief>
       <SEO title='Home'/>
       <ProfileCard/>
     </Layout>
@@ -19,13 +18,3 @@ const BlogIndex: React.FC<{ data: IndexPageQuery }> = ({ data }) => {
 }
 
 export default BlogIndex
-
-export const pageQuery = graphql`
-  query IndexPage {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-  }
-`
