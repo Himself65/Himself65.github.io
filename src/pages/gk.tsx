@@ -2,11 +2,10 @@ import { graphql } from 'gatsby'
 import { FluidObject } from 'gatsby-image'
 import React from 'react'
 
-import { GkPageQuery, SiteSiteMetadataMenuLinks } from '~types'
+import { GkPageQuery } from '~types'
 
 import GKCard, { GKState } from '../components/GKCard'
 import Layout from '../components/layout'
-import RouterTabs from '../components/RouterTabs'
 import SEO from '../components/seo'
 
 interface GKPageProps {
@@ -26,13 +25,6 @@ const GKPage: React.FC<GKPageProps> = ({ data }) => {
   return (
     <Layout title={data.site?.siteMetadata?.title}>
       <SEO title='GK'/>
-      <RouterTabs
-        routers={
-          (data.site?.siteMetadata?.menuLinks ?? []) as
-            SiteSiteMetadataMenuLinks[]
-        }
-        currentPage='/gk'
-      />
       {gks.reverse().map(gk => (
         <GKCard
           key={gk.name}
@@ -53,11 +45,6 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
-        menuLinks {
-          name
-          link
-          icon
-        }
         gks {
           image
           name

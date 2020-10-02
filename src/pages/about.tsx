@@ -9,11 +9,9 @@ import Image, { FluidObject } from 'gatsby-image'
 import React from 'react'
 
 import type { AboutPageQuery } from '~types'
-import { SiteSiteMetadataMenuLinks } from '~types'
 
 import Bio from '../components/bio'
 import Layout from '../components/layout'
-import RouterTabs from '../components/RouterTabs'
 import SEO from '../components/seo'
 
 const useStyles = makeStyles({
@@ -58,10 +56,6 @@ const AboutPage: React.FC<{ data: AboutPageQuery; url: string }> = (props) => {
   return (
     <Layout title={siteTitle}>
       <SEO title='About'/>
-      <RouterTabs
-        routers={data.site?.siteMetadata?.menuLinks as SiteSiteMetadataMenuLinks[]}
-        currentPage='/about'
-      />
       <Typography
         style={{ marginTop: '1rem' }}
         variant='h5' align='center'
@@ -131,11 +125,6 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
-        menuLinks {
-          name
-          link
-          icon
-        }
         friendship {
           name
           url
