@@ -6,6 +6,7 @@ import {
 } from '@material-ui/core'
 import {
   GitHub as GitHubIcon,
+  Instagram as InstagramIcon,
   Twitter as TwitterIcon
 } from '@material-ui/icons'
 import { graphql, useStaticQuery } from 'gatsby'
@@ -32,6 +33,7 @@ const ProfileCard: React.FC = () => {
           social {
             twitter
             github
+            instagram
           }
         }
       }
@@ -84,10 +86,10 @@ const ProfileCard: React.FC = () => {
           <Grid container item spacing={1} direction='row' alignItems='center'>
             <Grid item>
               <Chip
-                color='primary'
                 clickable
                 component='a'
-                href={siteMetadata?.social?.twitter as string}
+                color='primary'
+                href={`https://twitter.com/${siteMetadata?.social?.twitter as string}`}
                 variant='outlined'
                 icon={<TwitterIcon fontSize='small' />}
                 label={
@@ -99,15 +101,30 @@ const ProfileCard: React.FC = () => {
             </Grid>
             <Grid item>
               <Chip
-                color='secondary'
                 clickable
                 component='a'
-                href={siteMetadata?.social?.github as string}
+                color='default'
+                href={`https://github.com/${siteMetadata?.social?.github as string}`}
                 variant='outlined'
                 icon={<GitHubIcon fontSize='small' />}
                 label={
                   <Typography variant='caption' color='textSecondary'>
                     GitHub
+                  </Typography>
+                }
+              />
+            </Grid>
+            <Grid item>
+              <Chip
+                clickable
+                component='a'
+                color='secondary'
+                href={`https://instagram.com/${siteMetadata?.social?.instagram as string}`}
+                variant='outlined'
+                icon={<InstagramIcon fontSize='small' />}
+                label={
+                  <Typography variant='caption' color='textSecondary'>
+                    Instagram
                   </Typography>
                 }
               />
