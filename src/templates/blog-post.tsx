@@ -5,8 +5,8 @@ import React from 'react'
 
 import type { BlogPostBySlugQuery } from '~types'
 
-import Bio from '../components/bio'
 import Layout from '../components/layout'
+import ProfileCard from '../components/ProfileCard'
 import SEO from '../components/seo'
 import { rhythm, scale } from '../utils/typography'
 
@@ -47,7 +47,7 @@ export const BlogPostTemplate: React.FC<{
           }}
         />
         <footer>
-          <Bio/>
+          <ProfileCard/>
         </footer>
       </article>
     </Layout>

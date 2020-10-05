@@ -10,8 +10,8 @@ import React from 'react'
 
 import type { AboutPageQuery } from '~types'
 
-import Bio from '../components/bio'
 import Layout from '../components/layout'
+import ProfileCard from '../components/ProfileCard'
 import SEO from '../components/seo'
 
 const useStyles = makeStyles({
@@ -96,19 +96,7 @@ const AboutPage: React.FC<{ data: AboutPageQuery; url: string }> = (props) => {
         })}
       </ul>
       <Divider className={classes.divider}/>
-      <Bio>
-        <div className={classes.introduction}>
-          <img
-            alt='GitHub followers'
-            src='https://img.shields.io/github/followers/himself65?label=Follow&style=social'
-          />
-          <br/>
-          <img
-            alt='Twitter Follow'
-            src='https://img.shields.io/twitter/follow/himself_65?label=Follow&style=social'
-          />
-        </div>
-      </Bio>
+      <ProfileCard/>
       <div className={classes.comment}>
         <Disqus.DiscussionEmbed
           shortname={process.env.GATSBY_DISQUS_NAME as string}
