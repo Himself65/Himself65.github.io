@@ -1,5 +1,6 @@
 import 'prismjs/themes/prism-solarizedlight.css'
 
+import { Typography } from '@material-ui/core'
 import { graphql } from 'gatsby'
 import React from 'react'
 
@@ -14,7 +15,7 @@ export const BlogPostTemplate: React.FC<{
   data: BlogPostBySlugQuery
 }> = (props) => {
   const post = props.data.markdownRemark
-  const siteTitle = props.data?.site?.siteMetadata?.title as string
+  const siteTitle = props.data?.site?.siteMetadata?.author as string
   return (
     <Layout to='/blog' title={siteTitle}>
       <SEO
@@ -22,15 +23,17 @@ export const BlogPostTemplate: React.FC<{
       />
       <article>
         <header>
-          <h1
+          <Typography
+            variant='h5'
             style={{
               marginTop: rhythm(1),
               marginBottom: 0
             }}
           >
             {post?.frontmatter?.title}
-          </h1>
-          <p
+          </Typography>
+          <Typography
+            variant='caption'
             style={{
               ...scale(-1 / 5),
               display: 'block',
@@ -38,7 +41,7 @@ export const BlogPostTemplate: React.FC<{
             }}
           >
             {post?.frontmatter?.date}
-          </p>
+          </Typography>
         </header>
         <section dangerouslySetInnerHTML={{ __html: post?.html as string }}/>
         <hr
@@ -60,7 +63,7 @@ export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
     site {
       siteMetadata {
-        title
+        author
       }
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {
