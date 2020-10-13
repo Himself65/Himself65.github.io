@@ -1,29 +1,37 @@
-import { Grid } from '@material-ui/core'
+import {
+  Divider,
+  List,
+  ListItem,
+  ListItemText,
+  Typography
+} from '@material-ui/core'
 import React, { Fragment } from 'react'
-
-import ArticleCard from './ArticleCard'
 
 const PostList = ({ posts = [] }) => {
   return (
     <Fragment>
-      <Grid container spacing={2}>
+      <List>
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
           return (
-            <Grid
-              key={title}
-              item
-            >
-              <ArticleCard
-                to={node.fields.slug}
-                title={title}
-                date={node.frontmatter.date}
-                description={node.frontmatter.description || node.excerpt}
-              />
-            </Grid>
+            <Fragment key={node.id}>
+              <ListItem button>
+                <ListItemText
+                  primary={title}
+                  secondary={
+                    (
+                      <Typography variant='caption'>
+                        {node.frontmatter.date}
+                      </Typography>
+                    )
+                  }
+                />
+              </ListItem>
+              <Divider component='li' />
+            </Fragment>
           )
         })}
-      </Grid>
+      </List>
     </Fragment>
   )
 }
