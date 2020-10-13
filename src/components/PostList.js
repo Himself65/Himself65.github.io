@@ -14,6 +14,7 @@ const PostList = ({ posts = [] }) => {
       <List>
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
+          if (node.frontmatter.display === false) return null
           return (
             <Fragment key={node.id}>
               <ListItem

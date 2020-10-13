@@ -2,6 +2,7 @@
 title: 新玩具项目 ———— FibeRad
 tags: ["life"]
 date: "2019-12-31"
+display: false
 ---
 七月份去BiliBili总部面基 Wayslog 的时候，不下二次听说Rust。记得第一次是在世界一流大学（副级部）面基 Darkflames 和我谈Rust所有权。然后想着写点啥Rust代码玩玩，结果一直咕到了9102年年末。
 
