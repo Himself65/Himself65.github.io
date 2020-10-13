@@ -16,7 +16,7 @@ export const BlogPostTemplate: React.FC<{
   const post = props.data.markdownRemark
   const siteTitle = props.data?.site?.siteMetadata?.title as string
   return (
-    <Layout title={siteTitle}>
+    <Layout to='/blog' title={siteTitle}>
       <SEO
         title={post?.frontmatter?.title}
       />

@@ -23,6 +23,7 @@ const useStyle = makeStyles({
 const Layout: React.FC<{
   title: string | null | undefined
   brief?: boolean
+  to?: string
 }> = props => {
   const { title = 'UNKNOWN', children, brief } = props
   const classes = useStyle()
@@ -74,7 +75,7 @@ const Layout: React.FC<{
           textDecoration: 'none',
           color: 'inherit'
         }}
-        to={'/'}
+        to={props.to || '/'}
       >
         {title}
       </Link>

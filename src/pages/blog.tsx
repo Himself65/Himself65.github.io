@@ -11,7 +11,7 @@ const BlogPage: React.FC<{ data: BlogPageQuery }> = ({ data }) => {
     ({ node }) => data.excludeMarkdownRemark.edges.find(
       ({ node: { id } }) => id === node.id) === undefined)
   return (
-    <Layout title={'Himself65\'s Blog'}>
+    <Layout to='/blog' title={'Himself65\'s Blog'}>
       <PostList posts={posts} />
     </Layout>
   )
