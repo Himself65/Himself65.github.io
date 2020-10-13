@@ -5,6 +5,7 @@ import {
   ListItemText,
   Typography
 } from '@material-ui/core'
+import { Link } from 'gatsby'
 import React, { Fragment } from 'react'
 
 const PostList = ({ posts = [] }) => {
@@ -15,7 +16,15 @@ const PostList = ({ posts = [] }) => {
           const title = node.frontmatter.title || node.fields.slug
           return (
             <Fragment key={node.id}>
-              <ListItem button>
+              <ListItem
+                component={Link}
+                button
+                style={{
+                  color: 'inherit',
+                  boxShadow: 'none'
+                }}
+                to={node.fields.slug}
+              >
                 <ListItemText
                   primary={title}
                   secondary={
