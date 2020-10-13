@@ -1,7 +1,5 @@
 import '../style/index.css'
 
-import { IconButton, Tooltip } from '@material-ui/core'
-import BookIcon from '@material-ui/icons/Book'
 import React from 'react'
 
 import Layout from '../components/layout'

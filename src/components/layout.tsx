@@ -1,4 +1,9 @@
-import { createMuiTheme, CssBaseline, ThemeProvider } from '@material-ui/core'
+import {
+  createMuiTheme,
+  CssBaseline,
+  ThemeProvider,
+  Typography
+} from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles'
 import { graphql, Link, useStaticQuery } from 'gatsby'
 import moment from 'moment'
@@ -47,15 +52,16 @@ const Layout: React.FC<{
     })
   }, [])
   const data = useStaticQuery(graphql`
-      query LayoutQuery {
-          site {
-              buildTime
-          }
+    query LayoutQuery {
+      site {
+        buildTime
       }
+    }
   `)
 
   const header = (
-    <h3
+    <Typography
+      variant='h4'
       style={{
         fontFamily: 'Montserrat, sans-serif',
         marginTop: 'auto',
@@ -72,11 +78,11 @@ const Layout: React.FC<{
       >
         {title}
       </Link>
-    </h3>
+    </Typography>
   )
   return (
     <ThemeProvider theme={themeConfig}>
-      <CssBaseline classes={classes}/>
+      <CssBaseline classes={classes} />
       <div
         style={{
           color: 'var(--textNormal)',
@@ -135,27 +141,33 @@ const Layout: React.FC<{
               }
             />
           ) : (
-            <div style={{ height: '24px' }}/>
+            <div style={{ height: '24px' }} />
           )}
         </header>
         <main>{children}</main>
         <footer style={{ marginTop: '2rem' }}>
-          © {new Date().getFullYear()}, Built {' '}
-          on {moment(data.site.buildTime).local().format('LLLL')}{' '}
-          using <a href='https://www.gatsbyjs.org'>Gatsby</a>
-          <br/>
+          <Typography variant='caption'>
+            © {new Date().getFullYear()}, Built {' '}
+            on {moment(data.site.buildTime).local().format('LLLL')}{' '}
+            using <Link to='https://www.gatsbyjs.org'>Gatsby</Link>
+          </Typography>
+          <br />
           {brief
             ? null
-            : (<span style={{ color: '#999', fontSize: '0.8rem' }}>
-              These articles are licensed under a{' '}
-              <a
-                rel='license'
-                style={{ color: '#0084b5' }}
-                href='http://creativecommons.org/licenses/by-sa/4.0/'
+            : (
+              <Typography
+                variant='caption'
               >
-                Creative Commons Attribution-ShareAlike 4.0 International License
-              </a>
-            </span>)
+                These articles are licensed under a{' '}
+                <Link
+                  rel='license'
+                  to='http://creativecommons.org/licenses/by-sa/4.0/'
+                >
+                  Creative Commons Attribution-ShareAlike 4.0 International
+                  License
+                </Link>
+              </Typography>
+            )
           }
         </footer>
       </div>
