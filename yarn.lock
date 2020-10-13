@@ -15852,6 +15852,13 @@ typography-normalize@^1.0.0-alpha.0:
   resolved "https://registry.yarnpkg.com/typography-normalize/-/typography-normalize-1.0.0-alpha.0.tgz#b6d20c22c477faf7c0384bcdeb0a17342e18ca85"
   integrity sha512-+3fQI75G+NIYYlWSAwIkHgLPcNJIjCKRdMlInDxKJhnp6VoOckSfGHAS1V+rgEwuFaiKB3S0qYfiyu21Thl3yg==
 
+typography-theme-github@^0.16.19:
+  version "0.16.19"
+  resolved "https://registry.yarnpkg.com/typography-theme-github/-/typography-theme-github-0.16.19.tgz#91842d3e0a92ad952adf6350ede0924d574193e8"
+  integrity sha512-kDfFjbeh2JW3buPub1JUA39AIKQrZhMuEeqJo6P+9c9JOEMLUBPvcHGrNd+wtAuZlVehPbqG6bcW6KAANHrsGw==
+  dependencies:
+    gray-percentage "^2.0.0"
+
 typography-theme-wordpress-2016@^1.0.0-alpha.0:
   version "1.0.0-alpha.0"
   resolved "https://registry.yarnpkg.com/typography-theme-wordpress-2016/-/typography-theme-wordpress-2016-1.0.0-alpha.0.tgz#ce898e5495bd5ca735c2a0f43749a8585c4dbb84"

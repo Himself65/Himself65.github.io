@@ -1,9 +1,9 @@
 import './global.css'
 
 import Typography from 'typography'
-import Wordpress2016 from 'typography-theme-wordpress-2016'
+import WordpressGithub from 'typography-theme-github'
 
-Wordpress2016.overrideThemeStyles = () => ({
+WordpressGithub.overrideThemeStyles = () => ({
   blockquote: {
     color: 'inherit',
     borderLeftColor: 'inherit',
@@ -11,7 +11,7 @@ Wordpress2016.overrideThemeStyles = () => ({
   }
 })
 
-const typography = new Typography(Wordpress2016)
+const typography = new Typography(WordpressGithub)
 
 // Hot reload typography in development.
 if (process.env.NODE_ENV !== 'production') {

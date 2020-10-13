@@ -43,6 +43,7 @@
     "typeface-montserrat": "^0.0.75",
     "typescript": "^4.0.3",
     "typography": "^1.0.0-alpha.4",
+    "typography-theme-github": "^0.16.19",
     "typography-theme-wordpress-2016": "^1.0.0-alpha.0"
   },
   "devDependencies": {
