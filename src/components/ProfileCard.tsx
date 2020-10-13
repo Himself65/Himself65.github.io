@@ -5,6 +5,7 @@ import {
   Typography
 } from '@material-ui/core'
 import {
+  Book as BookIcon,
   GitHub as GitHubIcon,
   Instagram as InstagramIcon,
   Twitter as TwitterIcon
@@ -125,6 +126,20 @@ const ProfileCard: React.FC = () => {
                 label={
                   <Typography variant='caption' color='textSecondary'>
                     Instagram
+                  </Typography>
+                }
+              />
+            </Grid>
+            <Grid item>
+              <Chip
+                clickable
+                component='a'
+                href='/blog'
+                variant='outlined'
+                icon={<BookIcon fontSize='small' />}
+                label={
+                  <Typography variant='caption' color='textSecondary'>
+                    Blog
                   </Typography>
                 }
               />
