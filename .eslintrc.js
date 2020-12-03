@@ -83,6 +83,9 @@ module.exports = {
     '@typescript-eslint/semi': 'off',
     // hotfix, refs; https://github.com/typescript-eslint/typescript-eslint/issues/2502
     'no-use-before-define': [0],
-    '@typescript-eslint/no-use-before-define': [1]
+    '@typescript-eslint/no-use-before-define': [1],
+    'graphql/template-strings': ['error', {
+      env: 'literal'
+    }]
   }
 }
