@@ -41,7 +41,8 @@ module.exports = {
     'prefer-const': 'error',
     'sort-imports': 'off',
     'import/order': 'off',
-    'simple-import-sort/sort': 'error',
+    'simple-import-sort/imports': 'error',
+    'simple-import-sort/exports': 'error',
     'no-unused-vars': 'off',
     'no-unused-expressions': 'warn',
     'react/jsx-filename-extension': [
@@ -84,8 +85,9 @@ module.exports = {
     // hotfix, refs; https://github.com/typescript-eslint/typescript-eslint/issues/2502
     'no-use-before-define': [0],
     '@typescript-eslint/no-use-before-define': [1],
-    'graphql/template-strings': ['error', {
-      env: 'literal'
-    }]
+    'graphql/template-strings': [
+      'error', {
+        env: 'literal'
+      }]
   }
 }

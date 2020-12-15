@@ -114,36 +114,38 @@ const Layout: React.FC<{
           }}
         >
           {header}
-          {theme != null ? (
-            <Toggle
-              icons={{
-                checked: (
-                  <img
-                    src={moon}
-                    width='16'
-                    height='16'
-                    role='presentation'
-                    style={{ pointerEvents: 'none' }}
-                  />
-                ),
-                unchecked: (
-                  <img
-                    src={sun}
-                    width='16'
-                    height='16'
-                    role='presentation'
-                    style={{ pointerEvents: 'none' }}
-                  />
-                )
-              }}
-              checked={theme === 'dark'}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                themeSubject.next(e.target.checked ? 'dark' : 'light')
-              }
-            />
-          ) : (
-            <div style={{ height: '24px' }} />
-          )}
+          {theme != null
+            // eslint-disable-next-line multiline-ternary
+            ? (<Toggle
+                icons={{
+                  checked: (
+                    <img
+                      src={moon}
+                      width='16'
+                      height='16'
+                      role='presentation'
+                      style={{ pointerEvents: 'none' }}
+                      alt='moon' />
+                  ),
+                  unchecked: (
+                    <img
+                      src={sun}
+                      width='16'
+                      height='16'
+                      role='presentation'
+                      style={{ pointerEvents: 'none' }}
+                      alt='sun'
+                    />
+                  )
+                }}
+                checked={theme === 'dark'}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                  themeSubject.next(e.target.checked ? 'dark' : 'light')
+                }
+              />
+              ) : (
+              <div style={{ height: '24px' }} />
+              )}
         </header>
         <main>{children}</main>
         <footer style={{ marginTop: '2rem' }}>
@@ -168,7 +170,7 @@ const Layout: React.FC<{
                   License
                 </Link>
               </Typography>
-            )
+              )
           }
         </footer>
       </div>
