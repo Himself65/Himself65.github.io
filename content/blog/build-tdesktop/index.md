@@ -33,7 +33,7 @@ date: "2020-12-14"
 
 ## 其他事项
 
-- `Python3` 一定要删掉，不然会和 `Python2.7` 冲突，即使从环境变量里删掉Python3也一样。否则产生一些符号表找不到的问题。目测是 cmake 会通过通用路径来查找 Python3/2
+- `Python3` 一定要删掉，不然会和 `Python2.7` 冲突，即使从环境变量里删掉Python3也一样。否则产生一些符号表找不到的问题。目测是 `cmake` 会通过通用路径来查找 `Python`
 
 - 如果打开 `TBuild\tdesktop\out\Telegram.sln` 后发现一些不可思议的错误，建议把 `out` 文件夹删除并重新编译项目
 
