@@ -1,5 +1,5 @@
 ---
-title: TDesktop（Telegram PC客户端）开发记录（一） ———— Windows编译踩坑
+title: TDesktop（Telegram PC客户端）开发记录（零） ———— Windows编译踩坑
 tags: ["code"]
 date: "2020-12-14"
 ---
