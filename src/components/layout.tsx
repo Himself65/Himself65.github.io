@@ -4,21 +4,14 @@ import {
   ThemeProvider,
   Typography
 } from '@material-ui/core'
-import { makeStyles } from '@material-ui/styles'
 import { graphql, Link, useStaticQuery } from 'gatsby'
 import moment from 'moment'
 import React, { useEffect, useMemo, useState } from 'react'
 import { Helmet } from 'react-helmet'
 import { Subject } from 'rxjs'
 
-import moon from '../assets/moon.png'
-import sun from '../assets/sun.png'
 import typography, { rhythm } from '../utils/typography'
 import Toggle from './Toggle'
-
-const useStyle = makeStyles({
-  // todo: font-family
-})
 
 const Layout: React.FC<{
   title: string | null | undefined
@@ -26,7 +19,6 @@ const Layout: React.FC<{
   to?: string
 }> = props => {
   const { title = 'UNKNOWN', children, brief } = props
-  const classes = useStyle()
   const [theme, setTheme] = useState<'dark' | 'light' | null>(null)
   const themeSubject = useMemo(() => new Subject<'light' | 'dark'>(), [])
   const themeConfig = useMemo(() => createMuiTheme({
@@ -51,6 +43,18 @@ const Layout: React.FC<{
         setTheme(themeKey)
       }
     })
+  }, [])
+  const [moon, setMoon] = useState('')
+  const [sun, setSun] = useState('')
+  useEffect(() => {
+    const requireContext = require.context('../assets', false, /.png/, 'lazy')
+    const asyncImport = async () => {
+      const moonImage = await requireContext('./moon.png')
+      const sunImage = await requireContext('./sun.png')
+      setMoon(moonImage)
+      setSun(sunImage)
+    }
+    asyncImport().then()
   }, [])
   const data = useStaticQuery(graphql`
     query LayoutQuery {
@@ -83,7 +87,7 @@ const Layout: React.FC<{
   )
   return (
     <ThemeProvider theme={themeConfig}>
-      <CssBaseline classes={classes} />
+      <CssBaseline />
       <div
         style={{
           color: 'var(--textNormal)',
