@@ -31,5 +31,5 @@ yarn build      # build blog
 
 ALL code using [MIT](LICENSE) LICENSE,
 with all articles(including `/node`, `/content/blog` folders) using
-[CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/)
+[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 LICENSE.
