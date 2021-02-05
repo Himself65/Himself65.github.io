@@ -14,7 +14,7 @@ date: "2020-06-21"
 
 1978年6月，Intel推出了8086芯片，其是一款16位的处理器，可以寻址 `1MB` 的地址空间（2^20 = 1,048,576）。其需要调整段寄存器才能操作全部的地址空间。
 
-```asm
+```asm6502
 mov ax, 0xB800
 mov es, ax      ; 调整段寄存器
 
@@ -29,7 +29,7 @@ mov byte[es:0x00], 'L'
 
 从一段 `Hello, world` 开始
 
-```asm
+```asm6502
 bits 16     ; 16位编译
 org 0x7c00  ; 从0x7c00是起始地址
 boot:
@@ -62,7 +62,7 @@ nasm source.asm -f elf32 -o output.bin -l output.lst
 
 最左面是源代码的行数，随后是地址、二进制码、源代码内容。
 
-```lst
+```text
      1                                  bits 16
      2                                  org 0x7c00
      3                                  boot:
