@@ -1,4 +1,5 @@
 require('dotenv').config()
+const path = require('path')
 const friendship = require('./friendship')
 
 module.exports = {
@@ -12,69 +13,7 @@ module.exports = {
       github: 'himself65',
       instagram: 'himself_65'
     },
-    friendship: [...friendship],
-    gks: [
-      {
-        image: '1.png',
-        name: '少女前线 索米 KP-31 泳衣Ver.',
-        state: '已购买',
-        price: 269,
-        links: [
-          {
-            name: '会员购',
-            url: 'https://mall.bilibili.com/detail.html?itemsVersion=2&shopId=2233&loadingShow=1&noTitleBar=1#itemsId=10006157'
-          }
-        ]
-      },
-      {
-        image: '2.png',
-        name: '尼尔：机械纪元 尤尔哈二号B型',
-        state: '已购买',
-        price: 1769,
-        links: [
-          {
-            name: '会员购',
-            url: 'https://mall.bilibili.com/detail.html?itemsVersion=4&shopId=2233&loadingShow=1&noTitleBar=1#itemsId=10004907'
-          }
-        ]
-      },
-      {
-        image: '3.png',
-        name: '阿尔托莉雅 2.0 figma',
-        state: '已购买',
-        price: 399,
-        links: [
-          {
-            name: '会员购',
-            url: 'https://mall.bilibili.com/detail.html?itemsVersion=4&shopId=2233&loadingShow=1&noTitleBar=1#itemsId=10007844'
-          }
-        ]
-      },
-      {
-        image: '4.png',
-        name: 'DARLING in the FRANXX 莓',
-        state: '已购买',
-        price: 667,
-        links: [
-          {
-            name: '会员购',
-            url: 'https://mall.bilibili.com/detail.html?itemsVersion=6&shopId=2233&loadingShow=1&noTitleBar=1#itemsId=10005096'
-          }
-        ]
-      },
-      {
-        image: '5.png',
-        name: '初音未来 公式服',
-        state: '已购买',
-        price: 599,
-        links: [
-          {
-            name: '会员购',
-            url: 'https://mall.bilibili.com/detail.html?itemsVersion=5&shopId=2233&loadingShow=1&noTitleBar=1#itemsId=10018370'
-          }
-        ]
-      }
-    ]
+    friendship: [...friendship]
   },
   plugins: [
     {
@@ -122,21 +61,21 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/content/blog`,
+        path: path.resolve(__dirname, 'content', 'blog'),
         name: 'blog'
       }
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/content/assets`,
+        path: path.resolve(__dirname, 'content', 'assets'),
         name: 'assets'
       }
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/doc`,
+        path: path.resolve(__dirname, 'doc'),
         name: 'doc'
       }
     },
