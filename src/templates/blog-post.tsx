@@ -2,6 +2,7 @@ import 'prismjs/themes/prism-solarizedlight.css'
 
 import { Typography } from '@material-ui/core'
 import { graphql } from 'gatsby'
+import moment from 'moment'
 import React from 'react'
 
 import type { BlogPostBySlugQuery } from '~types'
@@ -40,7 +41,7 @@ export const BlogPostTemplate: React.FC<{
               marginBottom: rhythm(1)
             }}
           >
-            {post?.frontmatter?.date}
+            {moment(post?.frontmatter?.date).fromNow()}
           </Typography>
         </header>
         <section dangerouslySetInnerHTML={{ __html: post?.html as string }}/>
