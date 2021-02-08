@@ -2,6 +2,7 @@
 title: TDesktop（Telegram PC客户端）开发记录（零） ———— Windows编译踩坑
 tags: ["code"]
 date: "2020-12-14"
+display: false
 ---
 
 肝了几天 `赛博朋克2077`，随后而来的是一阵索然无味。碰巧最近新的显示屏到了，发现 Telegram PC客户端没法自适应DPI，实在忍不了。
