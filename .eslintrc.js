@@ -34,7 +34,7 @@ module.exports = {
     'simple-import-sort'
   ],
   rules: {
-    semi: 'off',
+    semi: ['error', 'never'],
     eqeqeq: 'error',
     'no-eval': 'error',
     'no-var': 'error',
@@ -81,7 +81,7 @@ module.exports = {
       }
     ],
     '@typescript-eslint/explicit-function-return-type': 'off',
-    '@typescript-eslint/semi': 'off',
+    '@typescript-eslint/semi': ['error', 'never'],
     // hotfix, refs; https://github.com/typescript-eslint/typescript-eslint/issues/2502
     'no-use-before-define': [0],
     '@typescript-eslint/no-use-before-define': [1],
