@@ -19,7 +19,7 @@ const Layout: React.FC<{
   to?: string
 }> = props => {
   const { title = 'UNKNOWN', children, brief } = props
-  const [theme, setTheme] = useState<'dark' | 'light' | null>(null)
+  const [theme, setTheme] = useState<'dark' | 'light'>('light')
   const themeSubject = useMemo(() => new Subject<'light' | 'dark'>(), [])
   const themeConfig = useMemo(() => createMuiTheme({
     palette: {
@@ -27,7 +27,7 @@ const Layout: React.FC<{
         default: theme === 'light' ? '#f9fafb' : '#363c48',
         paper: theme === 'light' ? '#ffffff' : '#282c35'
       },
-      type: theme || 'light'
+      mode: theme || 'light'
     },
     typography
   }), [theme])
