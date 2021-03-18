@@ -81,7 +81,7 @@ const ProfileCard: React.FC = () => {
           item
           spacing={3}
           direction='column'
-          justify='flex-start'
+          justifyContent='flex-start'
           alignItems='flex-start'
         >
           <Grid container item spacing={1} direction='row' alignItems='center'>
