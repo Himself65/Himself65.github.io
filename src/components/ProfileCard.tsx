@@ -1,4 +1,5 @@
 import {
+  Avatar,
   Chip,
   Grid,
   Paper,
@@ -10,20 +11,30 @@ import {
   Instagram as InstagramIcon,
   Twitter as TwitterIcon
 } from '@material-ui/icons'
+import { makeStyles } from '@material-ui/styles'
 import { graphql, useStaticQuery } from 'gatsby'
-import Image, { FixedObject } from 'gatsby-image'
 import React from 'react'
+import CountUp from 'react-countup'
 
 import type { ProfileCardQuery } from '~types'
 
-import { rhythm } from '../utils/typography'
+const useStyles = makeStyles({
+  avatar: {
+    width: 50,
+    height: 50,
+    '& img': {
+      marginBottom: 0
+    }
+  }
+})
 
 const ProfileCard: React.FC = () => {
+  const classes = useStyles()
   const data = useStaticQuery<ProfileCardQuery>(graphql`
     query ProfileCard {
       avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
         childImageSharp {
-          fixed(width: 50, height: 50) {
+          fixed(width: 100, height: 100) {
             ...GatsbyImageSharpFixed
           }
         }
@@ -46,23 +57,12 @@ const ProfileCard: React.FC = () => {
       <Grid container spacing={2}>
         <Grid container item spacing={1} alignItems='center'>
           <Grid item>
-            <Image
-              fixed={data.avatar?.childImageSharp?.fixed as FixedObject}
-              alt={siteMetadata?.author as string}
-              style={{
-                marginRight: rhythm(1 / 2),
-                marginBottom: 0,
-                minWidth: 50,
-                borderRadius: '100%'
-              }}
-              imgStyle={{
-                borderRadius: '50%'
-              }}
-            />
+            <Avatar classes={{ root: classes.avatar }} src={data.avatar?.childImageSharp?.fixed?.src} />
           </Grid>
           <Grid item>
             <Typography variant='h5'>
-              Himself65
+              Himself
+              <CountUp start={0} end={65}/>
             </Typography>
           </Grid>
         </Grid>

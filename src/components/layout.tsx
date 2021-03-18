@@ -13,6 +13,20 @@ import { Subject } from 'rxjs'
 import typography, { rhythm } from '../utils/typography'
 import Toggle from './Toggle'
 
+declare module '@material-ui/core' {
+  interface Theme {
+    status: {
+      danger: string
+    }
+  }
+
+  interface ThemeOptions {
+    status?: {
+      danger?: string
+    }
+  }
+}
+
 const Layout: React.FC<{
   title: string | null | undefined
   brief?: boolean
@@ -22,6 +36,9 @@ const Layout: React.FC<{
   const [theme, setTheme] = useState<'dark' | 'light'>('light')
   const themeSubject = useMemo(() => new Subject<'light' | 'dark'>(), [])
   const themeConfig = useMemo(() => createMuiTheme({
+    status: {
+      danger: ''
+    },
     palette: {
       background: {
         default: theme === 'light' ? '#f9fafb' : '#363c48',
