@@ -40,14 +40,14 @@ const ProfileCard: React.FC = () => {
       }
     }
   `)
-  const siteMetadata = data.site!.siteMetadata
+  const siteMetadata = data.site?.siteMetadata
   return (
     <Paper elevation={0}>
       <Grid container spacing={2}>
         <Grid container item spacing={1} alignItems='center'>
           <Grid item>
             <Image
-              fixed={data.avatar!.childImageSharp!.fixed as FixedObject}
+              fixed={data.avatar?.childImageSharp?.fixed as FixedObject}
               alt={siteMetadata?.author as string}
               style={{
                 marginRight: rhythm(1 / 2),
