@@ -72,7 +72,7 @@ const ProfileCard: React.FC = () => {
               An Iowa state university freshman, member of node.js & hexo.js.
             </Typography>
             <Typography variant='body2'>
-              Recently learning Linux kernel and OS development
+              Recently learning about finance and stocks.
             </Typography>
           </Grid>
         </Grid>
