@@ -27,12 +27,74 @@ declare module '@material-ui/core' {
   }
 }
 
+const DefaultIntroduction: React.FC = () => (
+  <Typography
+    variant='caption'
+  >
+    These articles are licensed under a{' '}
+    <Link
+      rel='license'
+      to='http://creativecommons.org/licenses/by-sa/4.0/'
+    >
+      Creative Commons Attribution-ShareAlike 4.0 International
+      License
+    </Link>
+  </Typography>
+)
+
+const Header: React.FC<{ to?: string; title?: string }> = ({ to, title }) => (
+  <Typography
+    variant='h4'
+    style={{
+      fontFamily: 'Montserrat, sans-serif',
+      marginTop: 'auto',
+      marginBottom: 'auto'
+    }}
+  >
+    <Link
+      style={{
+        boxShadow: 'none',
+        textDecoration: 'none',
+        color: 'inherit'
+      }}
+      to={to || '/'}
+    >
+      {title}
+    </Link>
+  </Typography>
+)
+
+const Footer: React.FC<{ brief: boolean }> = ({ brief }) => {
+  const buildTime = useStaticQuery(graphql`
+      query LayoutQuery {
+          site {
+              buildTime
+          }
+      }
+  `).site.buildTime
+
+  return (
+    <footer style={{ marginTop: '2rem' }}>
+      <Typography variant='caption'>
+        © {new Date().getFullYear()}, Built {' '}
+        on {moment(buildTime).local().format('LLLL')}{' '}
+        using <Link to='https://www.gatsbyjs.org'>Gatsby</Link>
+      </Typography>
+      <br />
+      {brief
+        ? null
+        : <DefaultIntroduction />
+      }
+    </footer>
+  )
+}
+
 const Layout: React.FC<{
-  title: string | null | undefined
+  title?: string | null
   brief?: boolean
   to?: string
 }> = props => {
-  const { title = 'UNKNOWN', children, brief } = props
+  const { title = 'UNKNOWN', brief = false, children } = props
   const [theme, setTheme] = useState<'dark' | 'light'>('light')
   const themeSubject = useMemo(() => new Subject<'light' | 'dark'>(), [])
   const themeConfig = useMemo(() => createMuiTheme({
@@ -66,42 +128,16 @@ const Layout: React.FC<{
   useEffect(() => {
     const requireContext = require.context('../assets', false, /.png/, 'lazy')
     const asyncImport = async () => {
-      const moonImage = await requireContext('./moon.png')
-      const sunImage = await requireContext('./sun.png')
+      const [moonImage, sunImage] = await Promise.all([
+        requireContext('./moon.png'),
+        requireContext('./sun.png')
+      ])
       setMoon(moonImage)
       setSun(sunImage)
     }
     asyncImport().then()
   }, [])
-  const data = useStaticQuery(graphql`
-    query LayoutQuery {
-      site {
-        buildTime
-      }
-    }
-  `)
 
-  const header = (
-    <Typography
-      variant='h4'
-      style={{
-        fontFamily: 'Montserrat, sans-serif',
-        marginTop: 'auto',
-        marginBottom: 'auto'
-      }}
-    >
-      <Link
-        style={{
-          boxShadow: 'none',
-          textDecoration: 'none',
-          color: 'inherit'
-        }}
-        to={props.to || '/'}
-      >
-        {title}
-      </Link>
-    </Typography>
-  )
   return (
     <ThemeProvider theme={themeConfig}>
       <CssBaseline />
@@ -138,66 +174,37 @@ const Layout: React.FC<{
             marginBottom: '2.625rem'
           }}
         >
-          {header}
-          {theme != null
-            // eslint-disable-next-line multiline-ternary
-            ? (<Toggle
-                icons={{
-                  checked: (
-                    <img
-                      src={moon}
-                      width='16'
-                      height='16'
-                      role='presentation'
-                      style={{ pointerEvents: 'none' }}
-                      alt='moon' />
-                  ),
-                  unchecked: (
-                    <img
-                      src={sun}
-                      width='16'
-                      height='16'
-                      role='presentation'
-                      style={{ pointerEvents: 'none' }}
-                      alt='sun'
-                    />
-                  )
-                }}
-                checked={theme === 'dark'}
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                  themeSubject.next(e.target.checked ? 'dark' : 'light')
-                }
-              />
-              ) : (
-              <div style={{ height: '24px' }} />
-              )}
+          <Header to={props.to} title={title ?? 'UNKNOWN'} />
+          <Toggle
+            icons={{
+              checked: (
+                <img
+                  src={moon}
+                  width='16'
+                  height='16'
+                  role='presentation'
+                  style={{ pointerEvents: 'none' }}
+                  alt='moon' />
+              ),
+              unchecked: (
+                <img
+                  src={sun}
+                  width='16'
+                  height='16'
+                  role='presentation'
+                  style={{ pointerEvents: 'none' }}
+                  alt='sun'
+                />
+              )
+            }}
+            checked={theme === 'dark'}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              themeSubject.next(e.target.checked ? 'dark' : 'light')
+            }
+          />
         </header>
         <main>{children}</main>
-        <footer style={{ marginTop: '2rem' }}>
-          <Typography variant='caption'>
-            © {new Date().getFullYear()}, Built {' '}
-            on {moment(data.site.buildTime).local().format('LLLL')}{' '}
-            using <Link to='https://www.gatsbyjs.org'>Gatsby</Link>
-          </Typography>
-          <br />
-          {brief
-            ? null
-            : (
-              <Typography
-                variant='caption'
-              >
-                These articles are licensed under a{' '}
-                <Link
-                  rel='license'
-                  to='http://creativecommons.org/licenses/by-sa/4.0/'
-                >
-                  Creative Commons Attribution-ShareAlike 4.0 International
-                  License
-                </Link>
-              </Typography>
-              )
-          }
-        </footer>
+        <Footer brief={brief} />
       </div>
     </ThemeProvider>
   )
