@@ -16,7 +16,7 @@ const useStyle = makeStyles({
   }
 })
 
-const BLM = () => {
+const BLM: React.FC = () => {
   const classes = useStyle()
   return (
     <SnackbarContent
