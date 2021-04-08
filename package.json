@@ -4,6 +4,9 @@
   "main": "index.js",
   "repository": "https://github.com/Himself65/himself65.git",
   "author": "himself65 <himself65@outlook.com>",
+  "engines": {
+    "node": ">=14"
+  },
   "dependencies": {
     "@emotion/react": "^11.1.5",
     "@emotion/styled": "^11.1.5",
@@ -82,7 +85,7 @@
     "pretty-quick": "^3.1.0",
     "signale": "^1.4.0"
   },
-  "license": "MIT",
+  "license": "See index.md#LICENSE",
   "scripts": {
     "lint": "yarn lint:eslint",
     "lint:fix": "yarn lint:eslint --fix",
