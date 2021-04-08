@@ -7663,6 +7663,13 @@ gatsby-plugin-sharp@^2.14.3:
     svgo "1.3.2"
     uuid "3.4.0"
 
+gatsby-plugin-twitter@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.npmjs.org/gatsby-plugin-twitter/-/gatsby-plugin-twitter-3.2.0.tgz#02c51d738529699c50a449ef201ce79bd03317e9"
+  integrity sha512-ZsG5l+HmhY9+p1RgvEiuRGDgYgU98stRQZ4quA0+sOEzui5MZ33FW0fjPsisM0potMXJrJ5123RCFDtyazK/5A==
+  dependencies:
+    "@babel/runtime" "^7.12.5"
+
 gatsby-plugin-typescript@^2.12.1:
   version "2.12.1"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-typescript/-/gatsby-plugin-typescript-2.12.1.tgz#cb2f009d5c015a7703578b86608e90d71b55e9ae"
