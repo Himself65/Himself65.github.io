@@ -1,5 +1,5 @@
 import { graphql } from 'gatsby'
-import React from 'react'
+import React, { useMemo } from 'react'
 
 import type { BlogPageQuery } from '~types'
 
@@ -7,9 +7,21 @@ import Layout from '../components/layout'
 import PostList from '../components/PostList'
 
 const BlogPage: React.FC<{ data: BlogPageQuery }> = ({ data }) => {
-  const posts = data.allMarkdownRemark.edges.filter(
-    ({ node }) => data.excludeMarkdownRemark.edges.find(
-      ({ node: { id } }) => id === node.id) === undefined)
+  const posts = useMemo(() =>
+    [
+      ...data.allMarkdownRemark.edges,
+      ...data.allMdx.edges
+    ].sort((b, a) => {
+      if (a.node?.frontmatter?.date < b.node?.frontmatter?.date) {
+        return -1
+      } else if (a.node?.frontmatter?.date > b.node?.frontmatter?.date) {
+        return 1
+      } else {
+        return 0
+      }
+    })
+  , [data.allMdx, data.allMarkdownRemark])
+
   return (
     <Layout to='/blog' title={'Himself65\'s Blog'}>
       <PostList posts={posts} />
@@ -26,7 +38,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMdx(sort: {fields: [frontmatter___date], order: DESC}) {
       edges {
         node {
           id
@@ -42,10 +54,26 @@ export const pageQuery = graphql`
         }
       }
     }
-    excludeMarkdownRemark: allMarkdownRemark(filter: {fileAbsolutePath: {regex: "/doc\\/.+.md/"}}) {
+    allMarkdownRemark(
+      filter: {
+        fileAbsolutePath: {
+          regex: "/blog/.+.md/"
+        }
+      },
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
       edges {
         node {
           id
+          excerpt
+          fields {
+            slug
+          }
+          frontmatter {
+            date
+            title
+            display
+          }
         }
       }
     }

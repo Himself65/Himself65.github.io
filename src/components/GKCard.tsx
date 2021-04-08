@@ -78,9 +78,7 @@ const GKCard: React.FC<GKCardProps> = ({ state, style }) => {
         >
           <b>Link</b>: {
             state.links
-              .map(link => (
-                <a key={link.url} href={link.url}>{link.name}</a>)
-              )
+              .map(link => (<a key={link.url} href={link.url}>{link.name}</a>))
           }
         </Typography>
       </CardContent>

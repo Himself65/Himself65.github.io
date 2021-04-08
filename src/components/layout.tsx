@@ -32,13 +32,13 @@ const DefaultIntroduction: React.FC = () => (
     variant='caption'
   >
     These articles are licensed under a{' '}
-    <Link
+    <a
       rel='license'
-      to='http://creativecommons.org/licenses/by-sa/4.0/'
+      href='http://creativecommons.org/licenses/by-sa/4.0/'
     >
       Creative Commons Attribution-ShareAlike 4.0 International
       License
-    </Link>
+    </a>
   </Typography>
 )
 
@@ -78,7 +78,7 @@ const Footer: React.FC<{ brief: boolean }> = ({ brief }) => {
       <Typography variant='caption'>
         © {new Date().getFullYear()}, Built {' '}
         on {moment(buildTime).local().format('LLLL')}{' '}
-        using <Link to='https://www.gatsbyjs.org'>Gatsby</Link>
+        using <a href='https://www.gatsbyjs.org'>Gatsby</a>
       </Typography>
       <br />
       {brief

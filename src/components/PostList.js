@@ -13,7 +13,8 @@ const PostList = ({ posts = [] }) => {
     <Fragment>
       <List>
         {posts.map(({ node }) => {
-          const title = node.frontmatter.title || node.fields.slug
+          const slug = node.slug || node.fields.slug
+          const title = node.frontmatter.title || slug
           if (node.frontmatter.display === false) return null
           return (
             <Fragment key={node.id}>
@@ -24,7 +25,7 @@ const PostList = ({ posts = [] }) => {
                   color: 'inherit',
                   boxShadow: 'none'
                 }}
-                to={node.fields.slug}
+                to={slug}
               >
                 <ListItemText
                   primary={title}

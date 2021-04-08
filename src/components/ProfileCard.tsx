@@ -21,10 +21,7 @@ import type { ProfileCardQuery } from '~types'
 const useStyles = makeStyles({
   avatar: {
     width: 50,
-    height: 50,
-    '& img': {
-      marginBottom: 0
-    }
+    height: 50
   }
 })
 

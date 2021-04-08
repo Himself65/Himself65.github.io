@@ -1,16 +1,11 @@
 import 'prismjs/themes/prism-solarizedlight.css'
 
-import { Typography } from '@material-ui/core'
 import { graphql } from 'gatsby'
-import moment from 'moment'
 import React from 'react'
 
 import type { BlogPostBySlugQuery } from '~types'
 
-import Layout from '../components/layout'
-import ProfileCard from '../components/ProfileCard'
-import SEO from '../components/seo'
-import { rhythm, scale } from '../utils/typography'
+import Post from '../components/Post'
 
 export const BlogPostTemplate: React.FC<{
   data: BlogPostBySlugQuery
@@ -18,43 +13,16 @@ export const BlogPostTemplate: React.FC<{
   const post = props.data.markdownRemark
   const siteTitle = props.data?.site?.siteMetadata?.author as string
   return (
-    <Layout to='/blog' title={siteTitle}>
-      <SEO
-        title={post?.frontmatter?.title}
-      />
-      <article>
-        <header>
-          <Typography
-            variant='h5'
-            style={{
-              marginTop: rhythm(1),
-              marginBottom: 0
-            }}
-          >
-            {post?.frontmatter?.title}
-          </Typography>
-          <Typography
-            variant='caption'
-            style={{
-              ...scale(-1 / 5),
-              display: 'block',
-              marginBottom: rhythm(1)
-            }}
-          >
-            {moment(post?.frontmatter?.date).fromNow()}
-          </Typography>
-        </header>
-        <section dangerouslySetInnerHTML={{ __html: post?.html as string }}/>
-        <hr
-          style={{
-            marginBottom: rhythm(1)
-          }}
-        />
-        <footer>
-          <ProfileCard/>
-        </footer>
-      </article>
-    </Layout>
+    <Post
+      siteTitle={siteTitle}
+      backTo='/blog'
+      postData={{
+        title: post?.frontmatter?.title as string,
+        date: post?.frontmatter?.date as string
+      }}
+    >
+      <section dangerouslySetInnerHTML={{ __html: post?.html || '' }}/>
+    </Post>
   )
 }
 

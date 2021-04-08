@@ -4,6 +4,9 @@ import Typography from 'typography'
 import WordpressGithub from 'typography-theme-github'
 
 WordpressGithub.overrideThemeStyles = () => ({
+  img: {
+    marginBottom: 0
+  },
   blockquote: {
     color: 'inherit',
     borderLeftColor: 'inherit',
