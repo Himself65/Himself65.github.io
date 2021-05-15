@@ -1,3 +1,4 @@
+import { defineCustomElements as deckDeckGoHighlightElement } from '@deckdeckgo/highlight-code/dist/loader'
 import { MDXProvider, MDXProviderComponents } from '@mdx-js/react'
 import { graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
@@ -11,6 +12,7 @@ const globalReplacement: MDXProviderComponents = {
 
 }
 
+deckDeckGoHighlightElement().then()
 export const MdxBlogPostTemplate: React.FC<{
   data: MdxBlogPostBySlugQuery
 }> = (props) => {
@@ -38,7 +40,7 @@ export const MdxBlogPostTemplate: React.FC<{
 
 export default MdxBlogPostTemplate
 
-export const pageQuery = graphql`
+export const query = graphql`
   query MdxBlogPostBySlug($slug: String!) {
     site {
       siteMetadata {

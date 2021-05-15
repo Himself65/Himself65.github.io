@@ -54,6 +54,7 @@
     "typography-theme-wordpress-2016": "^0.16.19"
   },
   "devDependencies": {
+    "@deckdeckgo/highlight-code": "^2.6.0",
     "@hot-loader/react-dom": "^17.0.1",
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
@@ -82,8 +83,10 @@
     "gatsby-plugin-page-creator": "^3.2.0",
     "gatsby-plugin-twitter": "^3.2.0",
     "gatsby-remark-component": "^1.1.3",
+    "gatsby-remark-highlight-code": "^2.2.0",
     "prettier": "^2.2.1",
     "pretty-quick": "^3.1.0",
+    "prism-react-renderer": "^1.2.0",
     "signale": "^1.4.0"
   },
   "license": "See index.md#LICENSE",

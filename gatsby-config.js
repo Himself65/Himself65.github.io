@@ -36,29 +36,6 @@ module.exports = {
       }
     },
     {
-      resolve: 'gatsby-remark-prismjs',
-      options: {
-        classPrefix: 'language-',
-        inlineCodeMarker: null,
-        showLineNumbers: false,
-        noInlineHighlight: false,
-        languageExtensions: [
-          {
-            language: 'superscript',
-            extend: 'javascript',
-            definition: {
-              superscript_types: /(SuperType)/
-            },
-            insertBefore: {
-              function: {
-                superscript_keywords: /(superif|superelse)/
-              }
-            }
-          }
-        ]
-      }
-    },
-    {
       resolve: 'gatsby-source-filesystem',
       options: {
         path: path.resolve(__dirname, 'content', 'blog'),
@@ -105,7 +82,13 @@ module.exports = {
           },
           'gatsby-remark-prismjs',
           'gatsby-remark-copy-linked-files',
-          'gatsby-remark-smartypants'
+          'gatsby-remark-smartypants',
+          {
+            resolve: 'gatsby-remark-highlight-code',
+            options: {
+              terminal: 'ubuntu'
+            }
+          }
         ]
       }
     },
@@ -134,7 +117,20 @@ module.exports = {
     'gatsby-plugin-material-ui',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-graphql-config',
-    'gatsby-plugin-mdx'
+    {
+      resolve: 'gatsby-plugin-mdx',
+      options: {
+        extensions: ['.mdx', '.md'],
+        gatsbyRemarkPlugins: [
+          {
+            resolve: 'gatsby-remark-highlight-code',
+            options: {
+              terminal: 'carbon'
+            }
+          }
+        ]
+      }
+    }
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
