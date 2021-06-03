@@ -76,62 +76,62 @@ exports.createPages = async ({ graphql, actions }) => {
   }
 
   // Create blog posts pages.
-  const posts = [
-    ...postsResult.data.postsRemark.edges,
-    ...postsResult.data.mdxRemark.edges
-  ].sort((a, b) => {
-    if (a.node?.frontmatter?.date < b.node?.frontmatter?.date) {
-      return -1
-    } else if (a.node?.frontmatter?.date > b.node?.frontmatter?.date) {
-      return 1
-    } else {
-      return 0
-    }
-  })
+  // const posts = [
+  //   ...postsResult.data.postsRemark.edges,
+  //   ...postsResult.data.mdxRemark.edges
+  // ].sort((a, b) => {
+  //   if (a.node?.frontmatter?.date < b.node?.frontmatter?.date) {
+  //     return -1
+  //   } else if (a.node?.frontmatter?.date > b.node?.frontmatter?.date) {
+  //     return 1
+  //   } else {
+  //     return 0
+  //   }
+  // })
 
-  posts.forEach((post, index, array) => {
-    const previous = index === posts.length - 1 ? null : array[index + 1].node
-    const next = index === 0 ? null : array[index - 1].node
+  // posts.forEach((post, index, array) => {
+  //   const previous = index === posts.length - 1 ? null : array[index + 1].node
+  //   const next = index === 0 ? null : array[index - 1].node
 
-    const postUrl = post.node.fields.slug
-    // fixme: check whether is .mdx without the node.slug
-    if (post.node.slug) {
-      // is mdx type
-      createPage({
-        path: postUrl,
-        component: mdxBlogPost,
-        context: {
-          slug: postUrl,
-          previous,
-          next
-        }
-      })
-    } else {
-      // is md type
-      createPage({
-        path: postUrl,
-        component: blogPost,
-        context: {
-          slug: postUrl,
-          previous,
-          next
-        }
-      })
-    }
-  })
+  //   const postUrl = post.node.fields.slug
+  //   // fixme: check whether is .mdx without the node.slug
+  //   if (post.node.slug) {
+  //     // is mdx type
+  //     createPage({
+  //       path: postUrl,
+  //       component: mdxBlogPost,
+  //       context: {
+  //         slug: postUrl,
+  //         previous,
+  //         next
+  //       }
+  //     })
+  //   } else {
+  //     // is md type
+  //     createPage({
+  //       path: postUrl,
+  //       component: blogPost,
+  //       context: {
+  //         slug: postUrl,
+  //         previous,
+  //         next
+  //       }
+  //     })
+  //   }
+  // })
 
   // create Tags page
-  const tags = result.data.tagsGroup.group
-  tags.forEach((tag) => {
-    const tagUrl = `/tags/${kebabCase(tag.fieldValue)}`
-    createPage({
-      path: tagUrl,
-      component: tagTemplate,
-      context: {
-        tag: tag.fieldValue
-      }
-    })
-  })
+  // const tags = result.data.tagsGroup.group
+  // tags.forEach((tag) => {
+  //   const tagUrl = `/tags/${kebabCase(tag.fieldValue)}`
+  //   createPage({
+  //     path: tagUrl,
+  //     component: tagTemplate,
+  //     context: {
+  //       tag: tag.fieldValue
+  //     }
+  //   })
+  // })
 }
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
