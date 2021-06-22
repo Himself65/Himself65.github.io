@@ -1,5 +1,5 @@
 ---
-title: 'Welcome my new blog'
+title: Welcome my new blog
 tags: ['diary']
 date: '2021-02-16'
 summary: I've updated my blog to Next.js
