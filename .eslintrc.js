@@ -1,5 +1,6 @@
 module.exports = {
   root: true,
+  ignorePatterns: ['public'],
   parserOptions: {
     ecmaVersion: 2020,
     sourceType: 'module',
