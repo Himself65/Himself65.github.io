@@ -11,7 +11,7 @@ summary: '最近发现有人拿着我的头像和ID冒充我在一些网站发�
 
 当然我有时候可能懒得签名了，但是你可以完全要求之后我补上签名。如果之后还没有签名，大可认为我被冒充了。
 
-```gpg
+```textile
 -----BEGIN PGP PUBLIC KEY BLOCK-----
 
 mDMEYLbxZRYJKwYBBAHaRw8BAQdATFdcA7J4mWJExkiE3/8DeW1DKWb030my+ZNt
