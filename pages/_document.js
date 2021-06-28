@@ -35,22 +35,28 @@ class MyDocument extends Document {
             crossOrigin="anonymous"
           />
           <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110549153-1" />
-          <script>
-            {
-              "window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'UA-110549153-1');"
-            }
-          </script>
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+  
+              gtag('config', 'UA-110549153-1');
+            `,
+            }}
+          />
           <script
             data-ad-client="ca-pub-9648629100084933"
             async
             src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
           />
-          <script>
-            {/* webpushr.com */}
-            {
-              "(function(w,d, s, id) {if(typeof(w.webpushr)!=='undefined') return;w.webpushr=w.webpushr||function(){(w.webpushr.q=w.webpushr.q||[]).push(arguments)};var js, fjs = d.getElementsByTagName(s)[0];js = d.createElement(s); js.id = id;js.async=1;js.src = \"https://cdn.webpushr.com/app.min.js\";fjs.parentNode.appendChild(js);}(window,document, 'script', 'webpushr-jssdk'));webpushr('setup',{'key':'BBwI_4scackYl7TwZKw4IPx3aVZXIy3g1XG6fmjG-0TkIvUv9qpwTNgzuCpUzJTayWhSgzgsDRDNQ8NyKiVVjgQ' });"
-            }
-          </script>
+          <script
+            dangerouslySetInnerHTML={{
+              __html:
+                "(function(w,d, s, id) {if(typeof(w.webpushr)!=='undefined') return;w.webpushr=w.webpushr||function(){(w.webpushr.q=w.webpushr.q||[]).push(arguments)};var js, fjs = d.getElementsByTagName(s)[0];js = d.createElement(s); js.id = id;js.async=1;js.src = \"https://cdn.webpushr.com/app.min.js\";fjs.parentNode.appendChild(js);}(window,document, 'script', 'webpushr-jssdk'));webpushr('setup',{'key':'BBwI_4scackYl7TwZKw4IPx3aVZXIy3g1XG6fmjG-0TkIvUv9qpwTNgzuCpUzJTayWhSgzgsDRDNQ8NyKiVVjgQ' });",
+            }}
+          />
         </Head>
         <body className="antialiased text-black bg-white dark:bg-gray-900 dark:text-white">
           <Main />
