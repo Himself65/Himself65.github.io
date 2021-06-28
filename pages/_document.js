@@ -34,6 +34,12 @@ class MyDocument extends Document {
             integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc"
             crossOrigin="anonymous"
           />
+          <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110549153-1" />
+          <script>
+            {
+              "window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'UA-110549153-1');"
+            }
+          </script>
           <script
             data-ad-client="ca-pub-9648629100084933"
             async
