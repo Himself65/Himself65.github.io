@@ -4,7 +4,8 @@ import { withIronSession, Session } from 'next-iron-session'
 
 const privateKeyPem = process.env.PRIVATE_KEY.replace(/\\n/g, '\n')
 const fido2Lib = new Fido2Lib({
-  rpId: 'himself65.com',
+  rpName: 'himself65-website',
+  rpId: process.env.NODE_ENV === 'production' ? 'himself65.com' : 'localhost',
   cryptoParams: [-7],
   authenticatorUserVerification: 'required',
 })
@@ -18,11 +19,10 @@ export default withIronSession(
   async function (req, res) {
     if (!req.body.data && req.method === 'GET') {
       const assertionOptions = await fido2Lib.assertionOptions()
-
-      console.log(assertionOptions)
       req.session.set('webauthn', {
         challenge: Buffer.from(assertionOptions.challenge),
       })
+      // save challenge to the session
       await req.session.save()
 
       res.status(200).json({
@@ -32,21 +32,20 @@ export default withIronSession(
     } else if (req.method === 'POST') {
       const { challenge: expectedChallenge } = req.session.get('webauthn')
       const {
-        data: {
-          id,
-          response: { clientDataJSON, attestationObject },
-        },
+        rawId,
+        response: { clientDataJSON, attestationObject },
       } = req.body
       const attestation = {
-        id: Buffer.from(id),
+        rawId: Buffer.from(rawId, 'base64').buffer,
         response: {
-          clientDataJSON: `${clientDataJSON}`,
-          attestationObject: `${attestationObject}`,
+          clientDataJSON: clientDataJSON,
+          attestationObject: attestationObject,
         },
       }
       const result = await fido2Lib.attestationResult(attestation, {
         challenge: Buffer.from(expectedChallenge).toString('base64'),
-        origin: 'himself65.com',
+        origin:
+          process.env.NODE_ENV === 'production' ? 'https://himself65.com' : 'http://localhost:3000',
         factor: 'either',
       })
     }
